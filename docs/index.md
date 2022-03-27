@@ -2,4 +2,4 @@
 title: Це головна сторінка
 ---
 
-# Hello VitePress
+# Hello VitePress2

@@ -3,11 +3,15 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Pullcrm',
   description: 'Just playing around.',
-  base: '/faq/',
+  base: '/faq',
   lang: 'uk-UA',
+  markdown: {
+    lineNumbers: true,
+  },
 
   themeConfig: {
-    logo: '/assets/logo_ua.svg',
+    logo: '/public/logo_ua.svg',
+    docsDir: "docs",
     nav: [
       {
         text: 'Головна',
