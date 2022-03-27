@@ -77,4 +77,4 @@ jobs:
         run: rsync -r ./docs/.vitepress/dist ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:'/var/www/pullcrm.com/faq/release-${{ github.sha }}'
         
       - name: Link the release folder on the server
-        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'rm /var/www/pullcrm.com/frontend/release && ln -s /var/www/pullcrm.com/frontend/release-${{ github.sha }} /var/www/pullcrm.com/frontend/release'
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'rm /var/www/pullcrm.com/faq/release && ln -s /var/www/pullcrm.com/faq/release-${{ github.sha }} /var/www/pullcrm.com/faq/release'
