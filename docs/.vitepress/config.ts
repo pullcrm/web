@@ -10,7 +10,7 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: '/public/logo_ua.svg',
+    logo: '/static/logo_ua.svg',
     docsDir: "docs",
     nav: [
       {
