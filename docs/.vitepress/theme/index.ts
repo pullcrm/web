@@ -1,9 +1,16 @@
 // https://vitepress.vuejs.org/guide/theming.html#extending-the-default-theme
-import DefaultTheme from 'vitepress/theme'
+import 'vitepress/dist/client/theme-default/styles/vars.css';
+import 'vitepress/dist/client/theme-default/styles/layout.css';
+import 'vitepress/dist/client/theme-default/styles/code.css';
+import 'vitepress/dist/client/theme-default/styles/custom-blocks.css';
+import 'vitepress/dist/client/theme-default/styles/sidebar-links.css';
+
 import '../scss/index.scss'
 
 // @ts-ignore
-import ThemeLayout from './Layout.vue'
+import Layout from './Layout.vue'
+// @ts-ignore
+import NotFound from './NotFound.vue'
 
 // @ts-ignore
 const UiKit = import.meta.glob('../ui/**/*.vue')
@@ -16,8 +23,8 @@ for (const key in UiKit) {
 }
 
 export default {
-  ...DefaultTheme,
-  Layout: ThemeLayout,
+  Layout,
+  NotFound,
   enhanceApp ({ app }) {
     for (const name in UiKitComponents) {
       app.component('Ui' + name, UiKitComponents[name])

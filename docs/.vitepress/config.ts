@@ -1,10 +1,12 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Pullcrm',
-  description: 'Just playing around.',
-  base: '/',
   lang: 'uk-UA',
+  title: 'Pullcrm',
+  // title: 'Облік клієнтів та онлайн запис - pullcrm',
+  description: 'Pullcrm - зручний інструмент автоматизації запису для вашої компанії. Онлайн запис для: ✅Барбершопу ✅Салону краси ✅Тату салону ✅Медичного центру ✅Стоматології.',
+
+  base: '/',
   markdown: {
     lineNumbers: true,
   },
@@ -22,10 +24,14 @@ export default defineConfig({
         link: '/faq/',
       },
       {
-        text: 'Telegram',
-        link: 'https://t.me/pullcrm',
-        target: '_blank', 
+        text: 'Документи',
+        link: '/documents/',
       }
+      // {
+      //   text: 'Telegram',
+      //   link: 'https://t.me/pullcrm',
+      //   target: '_blank', 
+      // }
     ],
     editLinks: false,
     lastUpdated: true,
@@ -34,7 +40,7 @@ export default defineConfig({
 
     sidebar: {
       '/faq/': getGuideSidebar(),
-      '/config/': getConfigSidebar(),
+      '/documents/': getDocumentsSidebar(),
       '/': getGuideSidebar()
     }
   }
@@ -69,16 +75,19 @@ function getGuideSidebar() {
   ]
 }
 
-function getConfigSidebar() {
+function getDocumentsSidebar() {
   return [
     {
-      text: 'App Config',
-      children: [{ text: 'Basics', link: '/config/basics' }]
+      text: 'Документи',
+      children: [
+        { text: 'Basics', link: '/documents/' },
+        { text: 'Повернення коштів', link: '/documents/money-return' },
+      ]
     },
     {
       text: 'Theme Config',
       children: [
-        { text: 'Homepage', link: '/config/homepage' },
+        { text: 'Homepage', link: '/documents/homepage' },
         { text: 'Algolia Search', link: '/config/algolia-search' },
         { text: 'Carbon Ads', link: '/config/carbon-ads' }
       ]
