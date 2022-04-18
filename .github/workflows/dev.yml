@@ -68,7 +68,7 @@ jobs:
           steps.cache-node-modules.outputs.cache-hit != 'true'
       
       - name: Build the project
-        run: yarn docs:build
+        run: yarn build
     
       - name: Create the release folder on the server
         run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'mkdir /var/www/pullcrm.dev/faq/release-${{ github.sha }}'
