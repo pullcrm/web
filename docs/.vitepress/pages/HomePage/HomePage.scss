@@ -1,0 +1,17 @@
+@import '../../scss/variables';
+
+.home-page {
+  &__alert {
+    margin: 24px 0;
+  }
+
+  &__section {
+    margin-top: 32px;
+  }
+
+  @media (min-width: $ui-laptop) {
+    &__section {
+      margin-top: 64px;
+    }
+  }
+}

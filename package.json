@@ -6,11 +6,15 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs --port=3000"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs --port=3000"
   },
   "devDependencies": {
+    "sass": "^1.50.0",
     "vitepress": "0.22.3"
+  },
+  "dependencies": {
+    "animated-scroll-to": "^2.2.0"
   }
 }

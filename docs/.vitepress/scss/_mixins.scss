@@ -1,0 +1,75 @@
+@import './variables';
+
+@mixin ui-container {
+  --ui-container-padding: #{$ui-mobile-padding};
+
+  width: calc(100% - var(--ui-container-padding) * 2);
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: $ui-mobile-portrait) {
+    --ui-container-padding: #{$ui-mobile-portrait-padding};
+  }
+
+  @media (min-width: $ui-tablet) {
+    --ui-container-padding: #{$ui-tablet-padding};
+  }
+
+  @media (min-width: $ui-laptop) {
+    --ui-container-padding: #{$ui-laptop-padding};
+  }
+
+  @media (min-width: $ui-desktop) {
+    --ui-container-padding: #{$ui-desktop-padding};
+
+    max-width: calc(#{$ui-desktop} - var(--ui-container-padding) * 2);
+  }
+}
+
+@mixin ui-hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin ui-mobile-only {
+  @media (max-width: ($ui-tablet - 1px)) {
+    @content;
+  }
+}
+
+@mixin ui-desktop-only {
+  @media (min-width: $ui-tablet) {
+    @content;
+  }
+}
+
+@mixin ui-shadow-16($color: #000) {
+  box-shadow: 0 8px 16px rgba($color, 0.12);
+}
+
+@mixin ui-shadow-4($color: #000, $opacity: 0.15) {
+  box-shadow: 0 2px 4px rgba($color, $opacity);
+}
+
+@mixin ui-shadow-4-inverse($color: #000, $opacity: 0.1) {
+  box-shadow: 0 -2px 4px rgba($color, 0.1);
+}
+
+@mixin ui-truncate($lines: '') {
+  @if $lines != '' {
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis; /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+  }
+
+  @if $lines == '' {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
