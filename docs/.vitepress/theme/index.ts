@@ -12,22 +12,18 @@ import Layout from './Layout.vue'
 // @ts-ignore
 import NotFound from './NotFound.vue'
 
-// @ts-ignore
-const UiKit = import.meta.glob('../ui/**/*.vue')
-const UiKitComponents = {}
-
-for (const key in UiKit) {
-  const name = key.split("/").pop().replace('.vue', '')
-
-  UiKitComponents[name] = await UiKit[key]().then(module => module.default ?? module)
-}
 
 export default {
   Layout,
   NotFound,
   enhanceApp ({ app }) {
-    for (const name in UiKitComponents) {
-      app.component('Ui' + name, UiKitComponents[name])
+    // @ts-ignore
+    const UiKit = import.meta.globEager('../ui/**/*.vue')
+
+    for (const key in UiKit) {
+      const name = key.split("/").pop().replace('.vue', '')
+
+      app.component('Ui' + name, UiKit[key].default)
     }
   }
 }
