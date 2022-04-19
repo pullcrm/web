@@ -1,11 +1,6 @@
 // https://vitepress.vuejs.org/guide/theming.html#extending-the-default-theme
-import 'vitepress/dist/client/theme-default/styles/vars.css'
-import 'vitepress/dist/client/theme-default/styles/layout.css'
-import 'vitepress/dist/client/theme-default/styles/code.css'
-import 'vitepress/dist/client/theme-default/styles/custom-blocks.css'
-import 'vitepress/dist/client/theme-default/styles/sidebar-links.css'
 
-import '../scss/index.scss'
+import '~/scss/index.scss'
 
 import Layout from './Layout.vue'
 import NotFound from './NotFound.vue'

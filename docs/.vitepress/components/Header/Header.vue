@@ -65,6 +65,9 @@ defineEmits(['toggle'])
 
 <style lang="scss">
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   background: $ui-white;
   border-bottom: 1px solid $ui-black-20;
 

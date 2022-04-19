@@ -61,11 +61,6 @@ const pageClasses = computed(() => {
       @toggle="toggleSidebar"
     />
 
-    <SideBar :open="openSideBar" />
-
-    <!-- TODO: make this button accessible -->
-    <div class="sidebar-mask" @click="toggleSidebar(false)" />
-
     <main
       v-if="isCustomLayout"
       class="theme__custom"
@@ -80,14 +75,24 @@ const pageClasses = computed(() => {
       />
     </main>
 
-    <Page v-else>
-      <template #top>
-        <slot name="page-top" />
-      </template>
-      <template #bottom>
-        <slot name="page-bottom" />
-      </template>
-    </Page>
+    <div
+      v-else
+      :class="{ 'has-sidebar': showSidebar }"
+    >
+      <SideBar :open="openSideBar" />
+
+      <!-- TODO: make this button accessible -->
+      <div class="sidebar-mask" @click="toggleSidebar(false)" />
+
+      <Page>
+        <template #top>
+          <slot name="page-top" />
+        </template>
+        <template #bottom>
+          <slot name="page-bottom" />
+        </template>
+      </Page>
+    </div>
   </div>
 
   <Debug />
