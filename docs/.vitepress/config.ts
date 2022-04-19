@@ -1,3 +1,4 @@
+import path from 'path'
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
@@ -13,7 +14,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/static/logo_ua.svg',
-    docsDir: "docs",
+    docsDir: 'docs',
     nav: [
       {
         text: 'Головна',
@@ -26,11 +27,11 @@ export default defineConfig({
       {
         text: 'Документи',
         link: '/documents/',
-      }
+      },
       // {
       //   text: 'Telegram',
       //   link: 'https://t.me/pullcrm',
-      //   target: '_blank', 
+      //   target: '_blank',
       // }
     ],
     editLinks: false,
@@ -41,9 +42,29 @@ export default defineConfig({
     sidebar: {
       '/faq/': getGuideSidebar(),
       '/documents/': getDocumentsSidebar(),
-      '/': getGuideSidebar()
-    }
-  }
+      '/': getGuideSidebar(),
+    },
+  },
+
+  vite: {
+    resolve: {
+      alias: {
+        '~/': `${path.resolve(__dirname, './')}/`,
+      },
+    },
+
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @import '~/scss/_mixins.scss';
+            @import '~/scss/_variables.scss';
+            @import '~/scss/_typo-mixins.scss';
+          `,
+        },
+      },
+    },
+  },
 })
 
 function getGuideSidebar() {
@@ -57,8 +78,8 @@ function getGuideSidebar() {
         { text: 'Asset Handling', link: '/guide/assets' },
         { text: 'Markdown Extensions', link: '/guide/markdown' },
         { text: 'Using Vue in Markdown', link: '/guide/using-vue' },
-        { text: 'Deploying', link: '/guide/deploy' }
-      ]
+        { text: 'Deploying', link: '/guide/deploy' },
+      ],
     },
     {
       text: 'Advanced',
@@ -68,10 +89,10 @@ function getGuideSidebar() {
         { text: 'API Reference', link: '/guide/api' },
         {
           text: 'Differences from Vuepress',
-          link: '/guide/differences-from-vuepress'
-        }
-      ]
-    }
+          link: '/guide/differences-from-vuepress',
+        },
+      ],
+    },
   ]
 }
 
@@ -82,15 +103,15 @@ function getDocumentsSidebar() {
       children: [
         { text: 'Basics', link: '/documents/' },
         { text: 'Повернення коштів', link: '/documents/money-return' },
-      ]
+      ],
     },
     {
       text: 'Theme Config',
       children: [
         { text: 'Homepage', link: '/documents/homepage' },
         { text: 'Algolia Search', link: '/config/algolia-search' },
-        { text: 'Carbon Ads', link: '/config/carbon-ads' }
-      ]
-    }
+        { text: 'Carbon Ads', link: '/config/carbon-ads' },
+      ],
+    },
   ]
 }

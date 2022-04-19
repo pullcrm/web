@@ -1,3 +1,6 @@
+<script lang="ts" setup>
+</script>
+
 <template>
   <div class="landing-footer">
     <UiContainer>
@@ -40,8 +43,5 @@
     </UiContainer>
   </div>
 </template>
-
-<script lang="ts" setup>
-</script>
 
 <style lang="scss" src="./Footer.scss"></style>

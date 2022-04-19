@@ -1,3 +1,23 @@
+<script lang="ts" setup>
+type theme =
+  | 'info'
+  | 'error'
+  | 'warning'
+  | 'success'
+
+defineProps({
+  theme: {
+    type: String as theme,
+    default: 'info',
+  },
+
+  leftIcon: {
+    type: String,
+    default: undefined,
+  },
+})
+</script>
+
 <template>
   <div
     class="ui-alert"
@@ -39,31 +59,5 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  props: {
-    theme: {
-      type: String,
-      default: 'info'
-    },
-
-    leftIcon: {
-      type: String,
-      default: undefined
-    }
-  }
-
-  // readonly theme:
-  //   | 'info'
-  //   | 'error'
-  //   | 'warning'
-  //   | 'success'
-
-  // readonly leftIcon?: string
-})
-</script>
 
 <style lang="scss" src="./Alert.scss" />

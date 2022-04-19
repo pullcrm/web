@@ -1,5 +1,6 @@
 <script lang="ts">
-import { defineComponent, h, VNode } from 'vue'
+import type { VNode } from 'vue'
+import { defineComponent, h } from 'vue'
 
 import UiIcon from '../Icon/Icon.vue'
 import UiIconLoader from '../IconLoader/IconLoader.vue'
@@ -8,68 +9,68 @@ export default defineComponent({
   props: {
     tag: {
       type: String,
-      default: 'button'
+      default: 'button',
     },
 
     type: {
       type: String,
-      default: 'button'
+      default: 'button',
     },
 
     theme: {
       type: String,
-      default: 'primary'
+      default: 'primary',
     },
 
     leftIcon: {
       type: String,
-      default: undefined
+      default: undefined,
     },
 
     rightIcon: {
       type: String,
-      default: undefined
+      default: undefined,
     },
 
     size: {
       type: String,
-      default: 'l'
+      default: 'l',
     },
 
     loading: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     responsive: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
-  render () {
-    function createAppend (children: VNode[]) {
+  render() {
+    function createAppend(children: VNode[]) {
       return h('span', { class: 'ui-button__append' }, children)
     }
 
-    function createPrepend (children: VNode[]) {
+    function createPrepend(children: VNode[]) {
       return h('span', { class: 'ui-button__prepend' }, children)
     }
 
-    function createContent (children: VNode[]) {
+    function createContent(children: VNode[]) {
       return h('span', { class: 'ui-button__content' }, children)
     }
 
-    function createLoader () {
+    function createLoader() {
       return h('span', { class: 'ui-button__loader' }, [
         h(UiIconLoader, {
-          size: 's'
-        })
+          size: 's',
+        }),
       ])
     }
 
@@ -79,12 +80,13 @@ export default defineComponent({
       prepend = createPrepend([
         h(UiIcon, {
           name: this.leftIcon,
-          size: 's'
-        })
+          size: 's',
+        }),
       ])
-    } else if (this.$slots.prepend) {
+    }
+    else if (this.$slots.prepend) {
       prepend = createPrepend(
-        this.$slots.prepend()
+        this.$slots.prepend(),
       )
     }
 
@@ -94,36 +96,37 @@ export default defineComponent({
       append = createAppend([
         h(UiIcon, {
           name: this.rightIcon,
-          size: 's'
-        })
+          size: 's',
+        }),
       ])
-    } else if (this.$slots.append) {
+    }
+    else if (this.$slots.append) {
       append = createAppend(
-        this.$slots.append()
+        this.$slots.append(),
       )
     }
 
     /* Loader */
     let loader = null
-    if (this.loading) {
+    if (this.loading)
       loader = createLoader()
-    }
 
     /* Content */
     let content
     if (
-      !loader &&
-      !append &&
-      !prepend &&
-      this.$slots.default
+      !loader
+      && !append
+      && !prepend
+      && this.$slots.default
       // slots().default?.every((node) => node.text)
     ) {
       // OPTIMIZATION:
       // Simplify `content` if there are only text nodes to decrease a number of DOM elements
       content = this.$slots.default()
-    } else if (this.$slots.default) {
+    }
+    else if (this.$slots.default) {
       content = createContent(
-        this.$slots.default()
+        this.$slots.default(),
       )
     }
 
@@ -139,7 +142,7 @@ export default defineComponent({
     return h(tag, {
       // ...data,
       // attrs: {
-        // ...data.attrs,
+      // ...data.attrs,
       type: tag === 'button' ? this.type : undefined,
       // },
       class: [
@@ -149,17 +152,17 @@ export default defineComponent({
         {
           'ui-button_loading': this.loading,
           'ui-button_disabled': this.disabled,
-          'ui-button_responsive': this.responsive
+          'ui-button_responsive': this.responsive,
         },
         // data.class
-      ]
+      ],
     }, [
       content,
       prepend,
       append,
-      loader
+      loader,
     ].filter(Boolean))
-  }
+  },
 })
 </script>
 

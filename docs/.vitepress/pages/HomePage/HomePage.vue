@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  import Intro from './components/Intro/Intro.vue'
-  import About from './components/About/About.vue'
-  import Reviews from './components/Reviews/Reviews.vue'
-  import Opportunities from './components/Opportunities/Opportunities.vue'
+import Intro from './components/Intro/Intro.vue'
+import About from './components/About/About.vue'
+import Reviews from './components/Reviews/Reviews.vue'
+import Opportunities from './components/Opportunities/Opportunities.vue'
 </script>
 
 <template>
@@ -37,4 +37,4 @@
   </div>
 </template>
 
-<style src="./HomePage.scss" lang="scss" scoped></style>
+<style src="./HomePage.scss" lang="scss"></style>

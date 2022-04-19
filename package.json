@@ -11,8 +11,12 @@
     "serve": "vitepress serve docs --port=3000"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.20.6",
     "sass": "^1.50.0",
-    "vitepress": "0.22.3"
+    "vitepress": "0.22.3",
+    "eslint": "^8.13.0",
+    "path": "^0.12.7",
+    "typescript": "^4.6.3"
   },
   "dependencies": {
     "animated-scroll-to": "^2.2.0"

@@ -1,3 +1,6 @@
+<script lang="ts" setup>
+</script>
+
 <template>
   <UiIcon
     class="ui-icon-loader"
@@ -5,14 +8,6 @@
     v-bind="$attrs"
   />
 </template>
-
-<script>
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  inheritAttrs: false
-})
-</script>
 
 <style lang="scss">
   @keyframes ui-icon-loader-spin {

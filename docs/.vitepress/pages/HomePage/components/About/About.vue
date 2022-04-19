@@ -1,3 +1,6 @@
+<script lang="ts" setup>
+</script>
+
 <template>
   <UiPanel
     size="m"
@@ -35,8 +38,5 @@
     </UiPanel>
   </UiPanel>
 </template>
-
-<script lang="ts" setup>
-</script>
 
 <style lang="scss" src="./About.scss"></style>

@@ -5,38 +5,38 @@ export default {
   props: {
     text: {
       type: String,
-      default: ''
+      default: '',
     },
 
     size: {
       type: String,
-      default: 'm'
+      default: 'm',
     },
 
     tag: {
       type: String,
-      default: 'div'
+      default: 'div',
     },
 
     strong: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     responsive: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     leftIcon: {
       type: String,
-      default: undefined
+      default: undefined,
     },
 
     rightIcon: {
       type: String,
-      default: undefined
-    }
+      default: undefined,
+    },
   },
 
   render() {
@@ -46,12 +46,13 @@ export default {
       prepend = h('div', { class: 'ui-text__prepend' }, [
         h(UiIcon, {
           name: this.leftIcon,
-          size: 'inherit'
-        })
+          size: 'inherit',
+        }),
       ])
-    } else if (this.$slots.prepend) {
+    }
+    else if (this.$slots.prepend) {
       prepend = h('div', { class: 'ui-text__prepend' },
-        this.$slots.prepend()
+        this.$slots.prepend(),
       )
     }
 
@@ -61,12 +62,13 @@ export default {
       append = h('div', { class: 'ui-text__append' }, [
         h(UiIcon, {
           name: this.rightIcon,
-          size: 'inherit'
-        })
+          size: 'inherit',
+        }),
       ])
-    } else if (this.$slots.append) {
+    }
+    else if (this.$slots.append) {
       append = h('div', { class: 'ui-text__append' },
-        this.$slots.append()
+        this.$slots.append(),
       )
     }
 
@@ -74,9 +76,8 @@ export default {
     let content = this.$slots.default
       ? this.$slots.default()
       : this.text
-    if (append || prepend) {
+    if (append || prepend)
       content = h('div', { class: 'ui-text__content' }, content)
-    }
 
     // if (this.tag !== 'RouterLink') {
     //   data.on = data.nativeOn
@@ -94,13 +95,13 @@ export default {
         { 'ui-text_has-append': Boolean(append) },
         { 'ui-text_has-prepend': Boolean(prepend) },
         // data.class
-      ]
+      ],
     }, [
       prepend,
       content,
-      append
+      append,
     ].filter(Boolean))
-  }
+  },
 }
 </script>
 

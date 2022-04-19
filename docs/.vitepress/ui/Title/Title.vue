@@ -1,6 +1,53 @@
+<script lang="ts">
+import { computed, defineComponent } from 'vue'
+
+export default defineComponent({
+  inheritAttrs: false,
+
+  props: {
+    size: {
+      type: String,
+      default: 'm',
+    },
+
+    tag: {
+      type: String,
+      default: 'div',
+    },
+
+    responsive: {
+      type: Boolean,
+      default: false,
+    },
+
+    leftIcon: {
+      type: String,
+      default: undefined,
+    },
+
+    rightIcon: {
+      type: String,
+      default: undefined,
+    },
+  },
+
+  setup(_props, ctx) {
+    return {
+      attrs: computed(() => ctx.attrs),
+    }
+  },
+
+  // readonly tag: string
+  // readonly size: 's' | 'm' | 'l' | 'xl'
+  // readonly leftIcon?: string
+  // readonly rightIcon?: string
+  // readonly responsive: boolean
+})
+</script>
+
 <template>
   <Component
-    :is="attrs.to ? 'RouterLink' : tag"
+    :is="tag"
     class="ui-title"
     :class="[
       `ui-title_size_${size}`,
@@ -45,52 +92,5 @@
     </span>
   </Component>
 </template>
-
-<script lang="ts">
-import { defineComponent, computed } from 'vue'
-
-export default defineComponent({
-  inheritAttrs: false,
-
-  props: {
-    size: {
-      type: String,
-      default: 'm'
-    },
-
-    tag: {
-      type: String,
-      default: 'div'
-    },
-
-    responsive: {
-      type: Boolean,
-      default: false
-    },
-
-    leftIcon: {
-      type: String,
-      default: undefined
-    },
-
-    rightIcon: {
-      type: String,
-      default: undefined
-    }
-  },
-
-  setup (_props, ctx) {
-    return {
-      attrs: computed(() => ctx.attrs)
-    }
-  }
-
-  // readonly tag: string
-  // readonly size: 's' | 'm' | 'l' | 'xl'
-  // readonly leftIcon?: string
-  // readonly rightIcon?: string
-  // readonly responsive: boolean
-})
-</script>
 
 <style lang="scss" src="./Title.scss"></style>

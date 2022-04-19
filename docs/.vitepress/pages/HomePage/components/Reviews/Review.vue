@@ -1,3 +1,20 @@
+<script lang="ts" setup>
+interface IReview {
+  info: string
+  name: string
+  link: string | null
+  image: string | null
+  content: string
+}
+
+defineProps({
+  review: {
+    type: Object as IReview,
+    required: true,
+  },
+})
+</script>
+
 <template>
   <UiPanel
     size="m"
@@ -51,22 +68,5 @@
     </div>
   </UiPanel>
 </template>
-
-<script lang="ts" setup>
-interface IReview {
-  info: string,
-  name: string,
-  link: string | null,
-  image: string | null,
-  content: string
-}
-
-defineProps({
-  review: {
-    type: Object as IReview,
-    required: true
-  }
-})
-</script>
 
 <style lang="scss" src="./Review.scss"></style>

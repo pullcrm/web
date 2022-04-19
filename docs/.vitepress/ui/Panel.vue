@@ -1,3 +1,24 @@
+<script lang="ts" setup>
+defineProps({
+  tag: {
+    type: String,
+    default: 'div',
+  },
+  size: {
+    type: String,
+    default: 'm',
+  },
+  responsive: {
+    type: Boolean,
+    default: false,
+  },
+  clickable: {
+    type: Boolean,
+    default: false,
+  },
+})
+</script>
+
 <template>
   <Component
     :is="tag"
@@ -12,31 +33,7 @@
   </Component>
 </template>
 
-<script lang="ts" setup>
-defineProps({
-  tag: {
-    type: String,
-    default: 'div'
-  },
-  size: {
-    type: String,
-    default: 'm'
-  },
-  responsive: {
-    type: Boolean,
-    default: false
-  },
-  clickable: {
-    type: Boolean,
-    default: false
-  }
-})
-</script>
-
 <style lang="scss">
-@import '../scss/variables';
-@import '../scss/mixins';
-
 .ui-panel {
   display: block;
   background: #fff;

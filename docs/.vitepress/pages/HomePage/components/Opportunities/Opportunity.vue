@@ -1,3 +1,14 @@
+<script lang="ts" setup>
+interface Props {
+  icon: string
+  color: string
+  title: string
+  description: string
+}
+
+const { icon, color, title, description } = defineProps<Props>()
+</script>
+
 <template>
   <UiPanel
     size="m"
@@ -31,16 +42,5 @@
     </UiText>
   </UiPanel>
 </template>
-
-<script lang="ts" setup>
-interface Props {
-  icon: string
-  color: string
-  title: string
-  description: string
-}
-
-const { icon, color, title, description } = defineProps<Props>()
-</script>
 
 <style lang="scss" src="./Opportunity.scss"></style>

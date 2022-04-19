@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+import Opportunity from './Opportunity.vue'
+</script>
+
 <template>
   <div class="home-page-opportunities">
     <UiTitle
@@ -52,9 +56,5 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-import Opportunity from './Opportunity.vue'
-</script>
 
 <style lang="scss" src="./Opportunities.scss"></style>

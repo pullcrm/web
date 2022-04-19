@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import { ref, computed, watch, defineAsyncComponent } from 'vue'
-import { useRoute, useData } from 'vitepress'
+import { computed, ref, watch } from 'vue'
+import { useData, useRoute } from 'vitepress'
 
-import { isSideBarEmpty, getSideBarConfig } from 'vitepress/dist/client/theme-default/support/sideBar'
+import { getSideBarConfig, isSideBarEmpty } from 'vitepress/dist/client/theme-default/support/sideBar'
 
 // components
 import Page from 'vitepress/dist/client/theme-default/components/Page.vue'
 import SideBar from 'vitepress/dist/client/theme-default/components/SideBar.vue'
 
-import NavBar from '../components/NavBar/NavBar.vue'
+import Header from '../components/Header/Header.vue'
 import Footer from '../components/Footer/Footer.vue'
-
-import Container from '../ui/Container.vue'
 
 // generic state
 const route = useRoute()
@@ -27,12 +25,11 @@ const isMultiLang = computed(() => Object.keys(site.value.langs).length > 1)
 const openSideBar = ref(false)
 
 const showSidebar = computed(() => {
-  if (frontmatter.value.sidebar === false) {
+  if (frontmatter.value.sidebar === false)
     return false
-  }
 
   return !isSideBarEmpty(
-    getSideBarConfig(theme.value.sidebar, route.data.relativePath)
+    getSideBarConfig(theme.value.sidebar, route.data.relativePath),
   )
 })
 
@@ -51,16 +48,16 @@ const pageClasses = computed(() => {
   return [
     {
       'sidebar-open': openSideBar.value,
-      'no-sidebar': !showSidebar.value
-    }
+      'no-sidebar': !showSidebar.value,
+    },
   ]
 })
 </script>
 
 <template>
   <div class="theme" :class="pageClasses">
-    <NavBar
-      class="theme__navbar"
+    <Header
+      class="theme__header"
       @toggle="toggleSidebar"
     />
 
@@ -73,14 +70,14 @@ const pageClasses = computed(() => {
       v-if="isCustomLayout"
       class="theme__custom"
     >
-      <Container>
+      <UiContainer>
         <Content />
+      </UiContainer>
 
-        <!-- TODO: Move footer to the end -->
-        <Footer
-          class="theme__footer"
-        />
-      </Container>
+      <!-- TODO: Move footer to the end -->
+      <Footer
+        class="theme__footer"
+      />
     </main>
 
     <Page v-else>
@@ -98,20 +95,8 @@ const pageClasses = computed(() => {
 
 <style lang="scss">
 .theme {
-  &__navbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 9;
-  }
-
   &__footer {
     margin-top: 44px;
-  }
-
-  &__custom {
-    padding-top: var(--header-height);
   }
 }
 </style>

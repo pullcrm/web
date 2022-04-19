@@ -5,11 +5,11 @@ export default defineComponent({
   props: {
     tag: {
       type: String,
-      default: 'div'
-    }
+      default: 'div',
+    },
   },
 
-  render () {
+  render() {
     // if (props.tag !== 'RouterLink') {
     //   data.on = { ...data.on, ...data.nativeOn }
     //   data.nativeOn = undefined
@@ -17,15 +17,15 @@ export default defineComponent({
 
     return h(this.tag, {
       // attrs: {
-        // ...data.attrs,
+      // ...data.attrs,
       'data-test': 'ui-carousel-item',
       // },
-      class: [
-        'ui-carousel-item'
+      'class': [
+        'ui-carousel-item',
         // data.class
-      ]
+      ],
     }, this.$slots.default())
-  }
+  },
 })
 </script>
 

@@ -1,3 +1,17 @@
+<script lang="ts" setup>
+import { computed } from 'vue'
+
+import { useData } from 'vitepress'
+
+import Review from './Review.vue'
+
+const { frontmatter } = useData()
+
+const reviews = computed(() => {
+  return frontmatter.value.reviews
+})
+</script>
+
 <template>
   <div
     v-if="reviews.length > 0"
@@ -24,19 +38,5 @@
     </UiCarousel>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { computed } from 'vue'
-
-import { useData } from 'vitepress'
-
-import Review from './Review.vue'
-
-const { frontmatter } = useData()
-
-const reviews = computed(() => {
-  return frontmatter.value.reviews
-})
-</script>
 
 <style lang="scss" src="./Reviews.scss"></style>

@@ -1,3 +1,21 @@
+<script lang="ts" setup>
+import { computed } from 'vue'
+
+const props = defineProps({
+  name: {
+    type: String,
+    required: true,
+  },
+
+  size: {
+    type: String,
+    default: 'm',
+  },
+})
+
+const icon = computed(() => `/ui-icons/${props.name}.svg`)
+</script>
+
 <template>
   <i
     :class="[
@@ -14,32 +32,5 @@
     </svg>
   </i>
 </template>
-
-<script lang="ts">
-import { defineComponent, computed } from 'vue'
-
-export default defineComponent({
-  props: {
-    name: {
-      type: String,
-      required: true
-    },
-
-    size: {
-      type: String,
-      default: 'm'
-    }
-  },
-
-  setup (props) {
-    // TODO: Remove extra icons
-    // TODO: Move ui icons to assets or change to some library
-
-    return {
-      icon: computed(() => `/ui-icons/${props.name}.svg`)
-    }
-  }
-})
-</script>
 
 <style lang="scss" src="./Icon.scss"></style>

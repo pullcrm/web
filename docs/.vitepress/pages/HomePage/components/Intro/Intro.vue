@@ -1,9 +1,25 @@
+<script lang="ts" setup>
+import { computed, ref } from 'vue'
+
+import { useData } from 'vitepress'
+
+import Youtube from '~/components/Youtube/Youtube.vue'
+
+const { frontmatter } = useData()
+
+const isVideoOpened = ref(false)
+
+const buttons = computed(() => {
+  return frontmatter.value.buttons
+})
+</script>
+
 <template>
   <div class="home-page-intro">
     <div class="home-page-intro__info">
       <UiTitle
         tag="h1"
-        size="xl"
+        size="l"
         class="home-page-intro__title"
       >
         <span>Онлайн запис</span>
@@ -11,7 +27,7 @@
       </UiTitle>
 
       <UiText
-        size="l"
+        size="m"
         responsive
         class="home-page-intro__text"
       >
@@ -48,7 +64,7 @@
         theme="green"
         right-icon="solid/play-fill"
         class="home-page-intro__video"
-        @click="openVideo"
+        @click="isVideoOpened = true"
       >
         Подивитись
       </UiButton>
@@ -59,24 +75,20 @@
       >
     </div>
   </div>
+
+  <UiPopupBackdrop
+    v-if="isVideoOpened"
+    @close="isVideoOpened = false"
+  >
+    <UiPopup
+      class="popup-youtube-intro"
+      @close="isVideoOpened = false"
+    >
+      <Youtube
+        id="_jSNjI9TQD0"
+      />
+    </UiPopup>
+  </UiPopupBackdrop>
 </template>
-
-<script lang="ts" setup>
-import { computed } from 'vue'
-
-import { useData } from 'vitepress'
-
-const { frontmatter } = useData()
-
-const buttons = computed(() => {
-  return frontmatter.value.buttons
-})
-
-const openVideo = () => {
-  // TODO: Add video popup
-  console.log('video opened')
-  // this.$typedStore.dispatch('popup/show', 'youtube-intro')
-}
-</script>
 
 <style lang="scss" src="./Intro.scss"></style>
