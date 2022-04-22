@@ -2,7 +2,7 @@ import path from 'path'
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  lang: 'uk-UA',
+  lang: 'uk',
   title: 'Pullcrm',
   // title: 'Облік клієнтів та онлайн запис - pullcrm',
   description: 'Pullcrm - зручний інструмент автоматизації запису для вашої компанії. Онлайн запис для: ✅Барбершопу ✅Салону краси ✅Тату салону ✅Медичного центру ✅Стоматології.',

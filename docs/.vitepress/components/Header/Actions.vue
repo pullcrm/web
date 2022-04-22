@@ -6,7 +6,7 @@ import { useAbsoluteLink } from '~/composables/location'
   <div class="header-actions">
     <UiText
       tag="a"
-      href="https://pullcrm.com/login/"
+      href="https://pullcrm.com/app/login/"
       size="m"
       strong
       class="header-actions__login"
@@ -19,7 +19,7 @@ import { useAbsoluteLink } from '~/composables/location'
 
     <UiText
       tag="a"
-      href="https://pullcrm.com/registration/"
+      href="https://pullcrm.com/app/registration/"
       size="m"
       strong
       class="header-actions__registration"
