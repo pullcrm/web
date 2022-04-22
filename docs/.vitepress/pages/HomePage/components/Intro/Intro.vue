@@ -39,7 +39,7 @@ const buttons = computed(() => {
           v-for="button in buttons"
           :key="button.id"
           tag="a"
-          :href="`/registration/?companyType=${button.id}`"
+          :href="`https://pullcrm.com/registration/?companyType=${button.id}`"
           size="m"
           theme="info-outlined"
         >
@@ -48,7 +48,7 @@ const buttons = computed(() => {
 
         <UiButton
           tag="a"
-          href="/registration/"
+          href="https://pullcrm.com/registration/"
           size="m"
           theme="blue"
           right-icon="outlined/arrow-right"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useData, useRoute } from 'vitepress'
 
 import { getSideBarConfig, isSideBarEmpty } from 'vitepress/dist/client/theme-default/support/sideBar'

@@ -29,7 +29,7 @@
 
       <UiButton
         tag="a"
-        href="/registration/"
+        href="https://pullcrm.com/registration/"
         size="m"
         theme="blue"
       >

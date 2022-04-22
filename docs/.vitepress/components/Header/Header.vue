@@ -81,7 +81,7 @@ defineEmits(['toggle'])
   &__logo {
     img {
       width: 32px;
-      border-radius: 8px;
+      border-radius: 2px;
     }
   }
 
