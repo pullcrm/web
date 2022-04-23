@@ -1,12 +1,17 @@
 .home-page-review {
   background-color: $ui-black-10;
   border: none;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   &__quote {
     height: 26px;
   }
 
   &__text {
+    flex: 1;
     margin-top: 16px;
 
     strong {

@@ -13,6 +13,11 @@ defineProps({
     required: true,
   },
 })
+
+const onLinkClick = (review: IReview) => {
+  if (review.link)
+    window.open(review.link, '_blank')
+}
 </script>
 
 <template>
@@ -52,17 +57,13 @@ defineProps({
         </UiTitle>
 
         <UiText
+          :tag="review.link ? 'a' : 'div'"
+          href="#"
           size="m"
           class="home-page-review__info"
+          @click.prevent="onLinkClick(review)"
         >
-          <template v-if="review.link">
-            <a :href="review.link" target="_blank">
-              {{ review.info }}
-            </a>
-          </template>
-          <template v-else>
-            {{ review.info }}
-          </template>
+          {{ review.info }}
         </UiText>
       </div>
     </div>

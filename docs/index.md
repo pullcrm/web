@@ -4,32 +4,27 @@ sidebar: false
 customLayout: true
 buttons:
   - id: 1
-    name: Simplicity First
+    name: Барбершоп
+  - id: 8
+    name: Nails салон
   - id: 2
-    name: Vue-Powered
-  - id: 3
-    name: Performant
+    name: Салон краси
 reviews:
   - name: Женя
-    info: Владелец барбершопа London
+    info: Founder "Barbershop London"
+    link: https://www.instagram.com/bigi_cuts/
+    image: /static/reviews/review_bigi_cuts.jpeg
+    content: Ми відчуваємо, що нарешті знайшли інструмент, який дає нам змогу розвиватися - і він буде розширюватись по міри того як росте наша команда.
+  - name: Адель
+    info: Засновниця "MyNails"
     link: null
     image: null
-    content: I have been held back by finances previously and ISA made it possible to move in my career without having to worry about the costs. <br><br> Changing profession might seem scary, but the support I received from Talanta made it seamless and easy. It feels incredible that I didn't have to change my life habits and could focus on self-development to achieve the success I deserve!
-  - info: string
-    name: string
+    content: Ми розглядали декілька варіантів систем обліку клієнтів, але в такий не простий час вирішили підтримати Український стартап і ніскільки про це не пожаліли.
+  - name: Олександр
+    info: Головний лікар ветеринарної медицини
     link: null
     image: null
-    content: string
-  - info: string
-    name: string
-    link: null
-    image: null
-    content: string
-  - info: string
-    name: string
-    link: null
-    image: null
-    content: string
+    content: Користуємось продуктом менше року і не знаємо проблем, pullcrm - це вибір для тих кому не потрібна маса функціоналу а хвилює швидкий запис і стабільна робота.
 ---
 
 <script setup>
