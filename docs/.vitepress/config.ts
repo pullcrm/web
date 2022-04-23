@@ -20,10 +20,10 @@ export default defineConfig({
     logo: '/static/logo-rounded.svg',
     docsDir: 'docs',
     nav: [
-      {
-        text: 'Головна',
-        link: '/',
-      },
+      // {
+      //   text: 'Головна',
+      //   link: '/',
+      // },
       {
         text: 'База знань',
         link: '/faq/',
@@ -31,6 +31,10 @@ export default defineConfig({
       {
         text: 'Документи',
         link: '/documents/',
+      },
+      {
+        text: 'Контакти',
+        link: '/contacts',
       },
       // {
       //   text: 'Telegram',
@@ -46,7 +50,6 @@ export default defineConfig({
     sidebar: {
       '/faq/': getGuideSidebar(),
       '/documents/': getDocumentsSidebar(),
-      '/': getGuideSidebar(),
     },
   },
 
