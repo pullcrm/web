@@ -5,11 +5,6 @@ import UiIcon from '../Icon/Icon.vue'
 
 export default {
   props: {
-    text: {
-      type: String,
-      default: '',
-    },
-
     size: {
       type: String,
       default: 'm',
@@ -20,9 +15,9 @@ export default {
       default: 'div',
     },
 
-    strong: {
-      type: Boolean,
-      default: false,
+    text: {
+      type: String,
+      default: '',
     },
 
     responsive: {
@@ -45,7 +40,7 @@ export default {
     /* Prepend */
     let prepend = null
     if (this.leftIcon) {
-      prepend = h('div', { class: 'ui-text__prepend' }, [
+      prepend = h('div', { class: 'ui-micro-text__prepend' }, [
         h(UiIcon, {
           name: this.leftIcon,
           size: 'inherit',
@@ -53,7 +48,7 @@ export default {
       ])
     }
     else if (this.$slots.prepend) {
-      prepend = h('div', { class: 'ui-text__prepend' },
+      prepend = h('div', { class: 'ui-micro-text__prepend' },
         this.$slots.prepend(),
       )
     }
@@ -61,7 +56,7 @@ export default {
     /* Append */
     let append = null
     if (this.rightIcon) {
-      append = h('div', { class: 'ui-text__append' }, [
+      append = h('div', { class: 'ui-micro-text__append' }, [
         h(UiIcon, {
           name: this.rightIcon,
           size: 'inherit',
@@ -69,8 +64,8 @@ export default {
       ])
     }
     else if (this.$slots.append) {
-      append = h('div', { class: 'ui-text__append' },
-        this.$slots.append(),
+      append = h('div', { class: 'ui-micro-text__append' },
+        this.$slots.append,
       )
     }
 
@@ -88,23 +83,22 @@ export default {
 
     return h(this.tag, {
       // ...data,
-      // attrs: this.attrs,
+      // attrs: data.attrs,
       class: [
-        'ui-text',
-        `ui-text_size_${this.size}`,
-        { 'ui-text_strong': this.strong },
-        { 'ui-text_responsive': this.responsive },
-        { 'ui-text_has-append': Boolean(append) },
-        { 'ui-text_has-prepend': Boolean(prepend) },
+        'ui-micro-text',
+        `ui-micro-text_size_${this.size}`,
+        { 'ui-micro-text_has-append': Boolean(append) },
+        { 'ui-micro-text_has-prepend': Boolean(prepend) },
+        { 'ui-micro-text_responsive': this.responsive },
         // data.class
       ],
     }, [
       prepend,
       content,
       append,
-    ].filter(Boolean))
+    ])
   },
 }
 </script>
 
-<style lang="scss" src="./Text.scss"></style>
+<style lang="scss" src="./MicroText.scss"></style>
