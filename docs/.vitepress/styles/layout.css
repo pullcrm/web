@@ -118,6 +118,14 @@ img {
   max-width: 100%;
 }
 
+ol {
+  list-style: decimal;
+}
+
+ul {
+  list-style: disc;
+}
+
 ul,
 ol {
   padding-left: 1.25em;

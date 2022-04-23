@@ -25,7 +25,7 @@ export default defineConfig({
         link: '/',
       },
       {
-        text: 'Faq',
+        text: 'База знань',
         link: '/faq/',
       },
       {
@@ -104,16 +104,9 @@ function getDocumentsSidebar() {
     {
       text: 'Документи',
       children: [
-        { text: 'Basics', link: '/documents/' },
-        { text: 'Повернення коштів', link: '/documents/money-return' },
-      ],
-    },
-    {
-      text: 'Theme Config',
-      children: [
-        { text: 'Homepage', link: '/documents/homepage' },
-        { text: 'Algolia Search', link: '/config/algolia-search' },
-        { text: 'Carbon Ads', link: '/config/carbon-ads' },
+        { text: 'Політика обробки персональних даних', link: '/documents/' },
+        { text: 'Адміністратор веб-сайту', link: '/documents/administrator' },
+        { text: 'Угода користувача', link: '/documents/agreement' },
       ],
     },
   ]
