@@ -12,6 +12,10 @@ export default defineConfig({
     lineNumbers: true,
   },
 
+  head: [
+    ['link', { rel: 'icon', type: 'image/x-icon', href: '/static/logo-rounded.svg' }],
+  ],
+
   themeConfig: {
     logo: '/static/logo-rounded.svg',
     docsDir: 'docs',
