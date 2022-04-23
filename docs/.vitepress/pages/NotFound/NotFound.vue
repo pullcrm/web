@@ -55,7 +55,9 @@ const { theme, frontmatter } = useData()
 
   img {
     width: 440px;
+    height: 240px;
     max-width: 100%;
+    object-fit: contain;
   }
 
   .ui-title {
