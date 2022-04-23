@@ -14,7 +14,7 @@ const { theme, frontmatter } = useData()
       size="m"
       responsive
     >
-      {{ frontmatter.pageTitle }}
+      Сторінка не знайдена
     </UiTitle>
 
     <UiText
@@ -22,7 +22,7 @@ const { theme, frontmatter } = useData()
       responsive
       class="not-found-page__description"
     >
-      {{ frontmatter.pageDescription }}
+      За вказаною адресою нічого знайдено. Можливо, сторінка була видалена або посилання некоректне. Спробуйте скористатися одним із розділів:
     </UiText>
 
     <div class="not-found-page__navigation">
