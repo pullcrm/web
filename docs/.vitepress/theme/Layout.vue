@@ -8,6 +8,8 @@ import { getSideBarConfig, isSideBarEmpty } from 'vitepress/dist/client/theme-de
 import Page from 'vitepress/dist/client/theme-default/components/Page.vue'
 import SideBar from 'vitepress/dist/client/theme-default/components/SideBar.vue'
 
+import NotFound from '../pages/NotFound/NotFound.vue'
+
 import Header from '../components/Header/Header.vue'
 import Footer from '../components/Footer/Footer.vue'
 
@@ -74,6 +76,17 @@ const pageClasses = computed(() => {
         class="theme__footer"
       />
     </main>
+
+    <template v-else-if="page.title === '404'">
+      <UiContainer>
+        <NotFound />
+      </UiContainer>
+
+      <!-- TODO: Move footer to the end -->
+      <Footer
+        class="theme__footer"
+      />
+    </template>
 
     <div
       v-else
