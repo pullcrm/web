@@ -25,7 +25,7 @@ const buttons = computed(() => {
         class="home-page-intro__title"
       >
         <span>Онлайн запис</span>
-        І облік клієнтів <br> для вашого бізнесу
+        Та облік клієнтів <br> для вашого бізнесу
       </UiTitle>
 
       <UiText
