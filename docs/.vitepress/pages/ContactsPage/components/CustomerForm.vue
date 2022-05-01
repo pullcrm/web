@@ -1,7 +1,9 @@
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from 'vue'
+import { onMounted, reactive, ref, watch } from 'vue'
 
 import { useApi } from '~/composables/api'
+
+const isFormSubmitted = ref(false)
 
 const form = reactive({
   name: '',
@@ -45,6 +47,17 @@ const onSubmit = async() => {
       error.field = resultError.fieldName
       error.error = resultError.message
     }
+    else {
+      form.name = ''
+      form.email = ''
+      form.phone = ''
+      form.comment = ''
+
+      error.field = ''
+      error.error = ''
+
+      isFormSubmitted.value = true
+    }
   }
   finally {
     isLoading.value = false
@@ -86,6 +99,7 @@ const onSubmit = async() => {
           id="name"
           v-model="form.name"
           name="name"
+          @input="isFormSubmitted = false"
         />
       </UiField>
 
@@ -97,6 +111,7 @@ const onSubmit = async() => {
           id="phone"
           v-model="form.phone"
           name="phone"
+          @input="isFormSubmitted = false"
         />
       </UiField>
 
@@ -109,18 +124,30 @@ const onSubmit = async() => {
           v-model="form.email"
           name="email"
           type="email"
+          @input="isFormSubmitted = false"
         />
       </UiField>
 
       <UiField
         label="Ваше питання"
-        :error="error.comment === 'email' && error.error"
+        :error="error.field === 'comment' && error.error"
       >
         <UiInput
           v-model="form.comment"
           tag="textarea"
+          @input="isFormSubmitted = false"
         />
       </UiField>
+
+      <UiText
+        v-if="isFormSubmitted"
+        size="l"
+        strong
+        responsive
+        class="contacts-page-customer-form__submitted-text"
+      >
+        Форма успішно відправлена
+      </UiText>
 
       <UiButton
         size="m"
@@ -175,6 +202,12 @@ const onSubmit = async() => {
         margin-top: 16px;
         width: 100%;
       }
+    }
+
+    &__submitted-text {
+      margin-top: 16px;
+      text-align: center;
+      color: $ui-green-brand;
     }
 
     @media (min-width: $ui-laptop) {
