@@ -3,6 +3,8 @@ import { computed, ref } from 'vue'
 
 import { useData } from 'vitepress'
 
+import { useAbsoluteLink } from '~/composables/location'
+
 import Youtube from '~/components/Youtube/Youtube.vue'
 
 const { frontmatter } = useData()
@@ -42,6 +44,7 @@ const buttons = computed(() => {
           :href="`https://pullcrm.com/app/registration/?companyType=${button.id}`"
           size="m"
           theme="info-outlined"
+          @click.prevent="useAbsoluteLink"
         >
           {{ button.name }}
         </UiButton>
@@ -52,6 +55,7 @@ const buttons = computed(() => {
           size="m"
           theme="blue"
           right-icon="outlined/arrow-right"
+          @click.prevent="useAbsoluteLink"
         >
           Підключитись
         </UiButton>
