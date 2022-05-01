@@ -78,3 +78,12 @@ jobs:
         
       - name: Link the release folder on the server
         run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'rm /var/www/pullcrm.dev/faq/release && ln -s /var/www/pullcrm.dev/faq/release-${{ github.sha }} /var/www/pullcrm.dev/faq/release'
+
+      - name: Slack Notify
+        if: always()
+        uses: rtCamp/action-slack-notify@v2.2.0
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_USERNAME: Autodeploy WEB (DEV)
+
