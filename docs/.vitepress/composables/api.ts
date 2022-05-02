@@ -10,7 +10,7 @@ const auth = (USER && PASSWORD)
   : null
 
 // TODO: Move to .env
-const RPC_URL = 'https://dev.pullcrm.com/api'
+const RPC_URL = 'https://pullcrm.com/api'
 
 export const useApi = createFetch({
   baseUrl: RPC_URL,
