@@ -9,11 +9,10 @@ const auth = (USER && PASSWORD)
   ? `${USER}:${PASSWORD}`
   : null
 
-// TODO: Move to .env
-const RPC_URL = 'https://pullcrm.com/api'
-
 export const useApi = createFetch({
-  baseUrl: RPC_URL,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  baseUrl: import.meta.env.VITE_RPC_URL,
   fetchOptions: {
     headers: {
       Authorization: auth ? `Basic ${btoa(`${auth}`)}` : null,
