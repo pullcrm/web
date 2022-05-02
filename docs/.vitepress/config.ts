@@ -20,14 +20,14 @@ export default defineConfig({
     logo: '/static/logo-rounded.svg',
     docsDir: 'docs',
     nav: [
-      // {
-      //   text: 'Головна',
-      //   link: '/',
-      // },
       {
-        text: 'База знань',
-        link: '/faq/',
+        text: 'Головна',
+        link: '/',
       },
+      // {
+      //   text: 'База знань',
+      //   link: '/faq/',
+      // },
       {
         text: 'Документи',
         link: '/documents/',
