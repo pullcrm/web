@@ -1,3 +1,3 @@
-export function useAbsoluteLink(event: Event): void {
-  window.open((event.target as HTMLLinkElement).href.replace('https://pullcrm.com', ''), '_self')
+export function useAbsoluteLink(url): void {
+  window.open(url, '_self')
 }

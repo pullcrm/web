@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { useAbsoluteLink } from '~/composables/location'
 </script>
 
 <template>
@@ -29,9 +30,10 @@
 
       <UiButton
         tag="a"
-        href="https://pullcrm.com/app/registration/"
+        href="#"
         size="m"
         theme="blue"
+        @click.prevent="useAbsoluteLink('/app/registration/')"
       >
         Підключитись
       </UiButton>
