@@ -73,13 +73,13 @@ jobs:
         run: yarn build
     
       - name: Create the release folder on the server
-        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'mkdir /var/www/pullcrm.dev/faq/release-${{ github.sha }}'
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'mkdir /var/www/pullcrm.dev/web/release-${{ github.sha }}'
         
       - name: Upload the dist folder to the server
-        run: rsync -r ./docs/.vitepress/dist ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:'/var/www/pullcrm.dev/faq/release-${{ github.sha }}'
+        run: rsync -r ./docs/.vitepress/dist ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:'/var/www/pullcrm.dev/web/release-${{ github.sha }}'
         
       - name: Link the release folder on the server
-        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'rm /var/www/pullcrm.dev/faq/release && ln -s /var/www/pullcrm.dev/faq/release-${{ github.sha }} /var/www/pullcrm.dev/faq/release'
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'rm /var/www/pullcrm.dev/web/release && ln -s /var/www/pullcrm.dev/web/release-${{ github.sha }} /var/www/pullcrm.dev/web/release'
 
       - name: Slack Notify
         if: always()
