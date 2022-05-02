@@ -41,21 +41,21 @@ const buttons = computed(() => {
           v-for="button in buttons"
           :key="button.id"
           tag="a"
-          :href="`https://pullcrm.com/app/registration/?companyType=${button.id}`"
+          href="#"
           size="m"
           theme="info-outlined"
-          @click.prevent="useAbsoluteLink"
+          @click.prevent="useAbsoluteLink(`/app/registration/?companyType=${button.id}`)"
         >
           {{ button.name }}
         </UiButton>
 
         <UiButton
           tag="a"
-          href="https://pullcrm.com/app/registration/"
+          href="#"
           size="m"
           theme="blue"
           right-icon="outlined/arrow-right"
-          @click.prevent="useAbsoluteLink"
+          @click.prevent="useAbsoluteLink('/app/registration/')"
         >
           Підключитись
         </UiButton>

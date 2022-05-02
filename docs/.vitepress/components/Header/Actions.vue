@@ -6,11 +6,11 @@ import { useAbsoluteLink } from '~/composables/location'
   <div class="header-actions">
     <UiText
       tag="a"
-      href="https://pullcrm.com/app/login/"
+      href="#"
       size="m"
       strong
       class="header-actions__login"
-      @click.prevent="useAbsoluteLink"
+      @click.prevent="useAbsoluteLink('/app/login/')"
     >
       Увійти
     </UiText>
@@ -19,11 +19,11 @@ import { useAbsoluteLink } from '~/composables/location'
 
     <UiText
       tag="a"
-      href="https://pullcrm.com/app/registration/"
+      href="#"
       size="m"
       strong
       class="header-actions__registration"
-      @click.prevent="useAbsoluteLink"
+      @click.prevent="useAbsoluteLink('/app/registration/')"
     >
       Реєстрація
     </UiText>
