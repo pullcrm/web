@@ -29,6 +29,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
+
       - name: Create SSH key
         uses: shimataro/ssh-key-action@v2
         with:
@@ -73,13 +77,13 @@ jobs:
         run: yarn build
     
       - name: Create the release folder on the server
-        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'mkdir /var/www/pullcrm.com/web/release-${{ github.sha }}'
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'mkdir /var/www/pullcrm.com/web/release-${{ steps.date.outputs.date }}'
         
       - name: Upload the dist folder to the server
-        run: rsync -r ./docs/.vitepress/dist ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:'/var/www/pullcrm.com/web/release-${{ github.sha }}'
+        run: rsync -r ./docs/.vitepress/dist ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:'/var/www/pullcrm.com/web/release-${{ steps.date.outputs.date }}'
         
       - name: Link the release folder on the server
-        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'rm /var/www/pullcrm.com/web/release && ln -s /var/www/pullcrm.com/web/release-${{ github.sha }} /var/www/pullcrm.com/web/release'
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'rm /var/www/pullcrm.com/web/release && ln -s /var/www/pullcrm.com/web/release-${{ steps.date.outputs.date }} /var/www/pullcrm.com/web/release'
 
       - name: Slack Notify
         if: always()
