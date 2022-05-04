@@ -19,6 +19,8 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      VITE_RPC_URL: https://dev.pullcrm.com/api
     
     strategy:
       matrix:
@@ -26,6 +28,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
       
       - name: Create SSH key
         uses: shimataro/ssh-key-action@v2
@@ -71,13 +77,13 @@ jobs:
         run: yarn build
     
       - name: Create the release folder on the server
-        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'mkdir /var/www/pullcrm.dev/faq/release-${{ github.sha }}'
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'mkdir /var/www/pullcrm.dev/web/release-${{ steps.date.outputs.date }}'
         
       - name: Upload the dist folder to the server
-        run: rsync -r ./docs/.vitepress/dist ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:'/var/www/pullcrm.dev/faq/release-${{ github.sha }}'
+        run: rsync -r ./docs/.vitepress/dist ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:'/var/www/pullcrm.dev/web/release-${{ steps.date.outputs.date }}'
         
       - name: Link the release folder on the server
-        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'rm /var/www/pullcrm.dev/faq/release && ln -s /var/www/pullcrm.dev/faq/release-${{ github.sha }} /var/www/pullcrm.dev/faq/release'
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'rm /var/www/pullcrm.dev/web/release && ln -s /var/www/pullcrm.dev/web/release-${{ steps.date.outputs.date }} /var/www/pullcrm.dev/web/release'
 
       - name: Slack Notify
         if: always()
