@@ -1,8 +1,0 @@
-:root {
-  --ui-transition: 0.2s ease-in;
-  --ui-transition-hover: none;
-
-  @media (hover: hover) {
-    --ui-transition-hover: var(--ui-transition);
-  }
-}
