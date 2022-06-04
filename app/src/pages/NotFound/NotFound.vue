@@ -48,8 +48,8 @@ useHead({
 
   img {
     width: 440px;
-    height: 240px;
     max-width: 100%;
+    height: 240px;
     object-fit: contain;
   }
 
@@ -58,14 +58,14 @@ useHead({
   }
 
   &__description {
-    margin-top: 16px;
     max-width: 600px;
+    margin-top: 16px;
   }
 
   &__navigation {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
+    flex-wrap: wrap;
     margin: 8px -16px 0;
 
     a {

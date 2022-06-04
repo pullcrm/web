@@ -33,7 +33,13 @@ export default defineConfig({
   },
 
   plugins: [
-    ViteSSR(),
+    ViteSSR({
+      build: {
+        serverOptions: {
+          publicDir: './public',
+        },
+      },
+    }),
 
     Vue(),
 

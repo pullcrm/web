@@ -6,7 +6,11 @@ const emit = defineEmits([
   'close',
 ])
 
-const close = () => {
+const router = useRouter()
+
+router.afterEach(() => close())
+
+function close() {
   emit('close')
 }
 </script>

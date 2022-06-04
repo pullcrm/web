@@ -1,0 +1,4 @@
+# TODOS
+☐ Add progress bar when fetch request is pendding
+☐ Fix problem on faq page, when request is start inside component
+☐ Show loading state when trigger search input on faq page

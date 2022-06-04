@@ -51,8 +51,8 @@ watch(
 <style lang="scss">
   .logger-button {
     position: fixed;
-    bottom: 44px;
     right: 44px;
+    bottom: 44px;
     z-index: 90;
   }
 
@@ -70,14 +70,14 @@ watch(
     }
 
     &__container {
-      padding: 24px;
       max-height: 100%;
+      padding: 24px;
       overflow-y: auto;
 
       pre {
         padding: 24px;
-        background-color: $ui-black-10;
         overflow: scroll;
+        background-color: $ui-black-10;
         border-radius: 4px;
       }
     }

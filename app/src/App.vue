@@ -19,15 +19,15 @@ export default {
 
 <style scoped>
 nav {
-  width: 500px;
   display: flex;
-  padding: 20px;
   justify-content: space-between;
-  margin-left: auto;
+  width: 500px;
+  margin-top: 20px;
   margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
   background: #efefef;
   border: 1px solid #ccc;
-  margin-top: 20px;
   border-radius: 4px;
 }
 </style>

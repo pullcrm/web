@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 @mixin ui-container {
   --ui-container-padding: #{$ui-mobile-padding};

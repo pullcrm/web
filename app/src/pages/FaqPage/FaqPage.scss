@@ -11,5 +11,9 @@
     &__inner {
       margin-top: 24px;
     }
+
+    &__preview + &__preview {
+      margin-top: 16px;
+    }
   }
 }

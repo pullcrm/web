@@ -167,20 +167,20 @@ const onSubmit = async () => {
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: none;
+      min-height: 485px;
       color: $ui-white;
       text-align: center;
       background-image: url('/static/img/contacts-bg.jpeg');
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      min-height: 485px;
+      border: none;
     }
 
     &__subtitle {
+      max-width: 320px;
       margin-top: 8px;
       opacity: 0.8;
-      max-width: 320px;
     }
 
     &__form {
@@ -197,21 +197,21 @@ const onSubmit = async () => {
       }
 
       .ui-button {
-        margin-top: 16px;
         width: 100%;
+        margin-top: 16px;
       }
     }
 
     &__submitted-text {
       margin-top: 16px;
-      text-align: center;
       color: $ui-green-brand;
+      text-align: center;
     }
 
     @media (min-width: $ui-laptop) {
       &__panel {
-        justify-content: center;
         align-items: flex-start;
+        justify-content: center;
         text-align: left;
       }
 

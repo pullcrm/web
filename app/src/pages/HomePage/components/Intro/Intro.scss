@@ -72,9 +72,7 @@
     &__image {
       position: absolute;
       top: 0;
-      left: calc(var(--intro-info-block-width) + 70px
-          /* margin-left */
-        );
+      left: calc(var(--intro-info-block-width) + 70px);
       width: 641px;
       max-width: 100%;
       height: inherit;

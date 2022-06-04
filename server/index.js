@@ -15,8 +15,6 @@ const manifest = require(`${dist}/client/ssr-manifest.json`)
 // This is the server renderer we just built
 const { default: renderPage } = require(`${dist}/server`)
 
-const api = require('./api')
-
 const server = express()
 
 // Serve every static asset route
@@ -26,12 +24,6 @@ for (const asset of ssr.assets || []) {
     express.static(path.join(__dirname, `${dist}/client/` + asset))
   )
 }
-
-// Custom API to get data for each page
-// See src/main.js to see how this is called
-api.forEach(({ route, handler, method = 'get' }) =>
-  server[method](route, handler)
-)
 
 // Everything else is treated as a "rendering request"
 server.get('*', async (request, response) => {

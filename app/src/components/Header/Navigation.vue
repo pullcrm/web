@@ -1,15 +1,31 @@
 <script lang="ts" setup>
+const route = useRoute()
+
+const navigation = computed(() => {
+  return SITE_NAV_ITEMS.map((item) => {
+    return {
+      ...item,
+      isActive: computed(() => {
+        if (item.link === '/')
+          return route.name === 'home'
+
+        return route.path.includes(item.link)
+      }),
+    }
+  })
+})
 </script>
 
 <template>
   <div class="landing-navigation">
     <UiText
-      v-for="item in SITE_NAV_ITEMS"
+      v-for="item in navigation"
       :key="item.text"
       tag="RouterLink"
       size="m"
       strong
       :to="item.link"
+      :class="{ '_is-active': item.isActive.value }"
     >
       {{ item.text }}
     </UiText>
@@ -51,7 +67,7 @@
     margin: 4px 0;
     padding: 8px 0;
 
-    &.router-link-active {
+    &._is-active {
       @include navigation-item_active;
     }
 

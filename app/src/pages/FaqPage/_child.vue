@@ -13,11 +13,15 @@ const { sections } = pageData || {}
 const breadcrumbs = computed(() => {
   return [
     {
-      title: 'Home',
+      title: 'Головна',
       to: '/',
     },
     {
-      title: 'Home2',
+      title: 'Faq',
+      to: '/faq/',
+    },
+    {
+      title: pageData.title,
     },
   ]
 })

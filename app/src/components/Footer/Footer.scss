@@ -11,9 +11,9 @@
   &__sub-inner {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 24px;
     margin-top: 16px;
     color: $ui-black-80;
+    column-gap: 24px;
 
     a {
       margin-top: 8px;
@@ -47,6 +47,10 @@
 
     &__links {
       margin-top: 0;
+    }
+
+    &__sub-inner {
+      flex-direction: column;
     }
   }
 }
