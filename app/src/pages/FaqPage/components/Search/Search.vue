@@ -1,4 +1,22 @@
 <script lang="ts" setup>
+const emit = defineEmits(['input'])
+
+const route = useRoute()
+const router = useRouter()
+
+const query = computed(() => {
+  return route.query.q || ''
+})
+
+const onInput = debounce(async (value) => {
+  await router.replace({
+    query: {
+      q: value || undefined,
+    },
+  })
+
+  emit('input')
+}, 600)
 </script>
 
 <template>
@@ -8,7 +26,8 @@
         <UiInput
           left-icon="outlined/magnifying-glass"
           placeholder="Шукати інформацію по розділу"
-          model-value=""
+          :model-value="query"
+          @update:model-value="onInput"
         />
       </div>
     </UiContainer>

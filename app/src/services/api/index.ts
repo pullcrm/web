@@ -1,6 +1,7 @@
 export interface IStrapiPageParams {
   populate?: string | object
   fields?: string
+  _q?: string
 }
 
 export const factory = (send: any) => ({

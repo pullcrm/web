@@ -1,15 +1,7 @@
 <script lang="ts" setup>
-interface IProps {
-  item: {
-    id: number
-    title: string
-    slug: string
-    seo?: any
-    updatedAt: string
-  }
-}
+import type { IFaqItem } from '../../types'
 
-const props = defineProps<IProps>()
+const props = defineProps<{ item: IFaqItem }>()
 
 const seo = computed(() => {
   return props.item.seo || {}
