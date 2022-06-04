@@ -51,7 +51,7 @@
     margin: 4px 0;
     padding: 8px 0;
 
-    &.active {
+    &.router-link-active {
       @include navigation-item_active;
     }
 

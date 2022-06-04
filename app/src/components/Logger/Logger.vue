@@ -71,6 +71,8 @@ watch(
 
     &__container {
       padding: 24px;
+      max-height: 100%;
+      overflow-y: auto;
 
       pre {
         padding: 24px;

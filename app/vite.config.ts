@@ -53,6 +53,7 @@ export default defineConfig({
       dts: 'src/auto-imports.d.ts',
       dirs: [
         'src/constants',
+        'src/utils',
         // 'src/composables',
         // 'src/store',
       ],

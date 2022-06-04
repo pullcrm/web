@@ -15,6 +15,7 @@
     "@vueuse/core": "^8.5.0",
     "@vueuse/head": "^0.7.6",
     "animated-scroll-to": "^2.2.0",
+    "dayjs": "^1.11.2",
     "isomorphic-base64": "^1.0.2",
     "isomorphic-unfetch": "^3.1.0",
     "nprogress": "^0.2.0",

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 interface IDocumentLink {
   id: number
-  name: string
   slug: string
+  title: string
 }
 
 interface IProps {
@@ -60,7 +60,7 @@ defineProps<IProps>()
           :to="`/documents/${item.slug}/`"
           size="m"
         >
-          {{ item.name }}
+          {{ item.title }}
         </UiText>
       </div>
     </UiContainer>

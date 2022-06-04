@@ -35,12 +35,10 @@ useHead({
       class="default-layout__header"
     />
 
-    <UiContainer>
-      <RouterView
-        :key="route.path"
-        v-bind="$attrs"
-      />
-    </UiContainer>
+    <RouterView
+      :key="route.path"
+      v-bind="$attrs"
+    />
 
     <Footer
       :documents="documents"

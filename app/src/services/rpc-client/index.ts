@@ -68,12 +68,7 @@ export default class RpcClient {
 
     return `?${Object.keys(params)
       .filter(key => params[key])
-      .map((key) => {
-        if (Array.isArray(params[key]))
-          return params[key].map((value: string) => `${key}[]=${value}`).join('&')
-
-        return `${key}=${params[key]}`
-      })
+      .map(key => `${key}=${params[key]}`)
       .join('&')}`
   }
 }

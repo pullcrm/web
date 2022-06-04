@@ -1,5 +1,3 @@
-import { generateId } from '~/utils/generate-id'
-
 export interface IRpcError {
   code: number
   data: string

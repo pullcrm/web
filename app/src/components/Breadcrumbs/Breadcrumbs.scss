@@ -1,0 +1,27 @@
+.breadcrumbs {
+  &__inner {
+    display: flex;
+  }
+
+  .breadcrumbs-item {
+    margin-right: 4px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: ($ui-tablet - 1px)) {
+    .ui-fade-scroll__inner {
+      direction: rtl;
+
+      &::before {
+        flex-grow: 1;
+      }
+    }
+
+    &__inner {
+      direction: ltr;
+    }
+  }
+}

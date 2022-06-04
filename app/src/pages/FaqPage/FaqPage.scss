@@ -1,3 +1,11 @@
 .faq-page {
-  //
+  &__inner {
+    margin-top: 44px;
+  }
+
+  @include ui-mobile-only {
+    &__inner {
+      margin-top: 24px;
+    }
+  }
 }

@@ -5,36 +5,38 @@ useHead({
 </script>
 
 <template>
-  <div class="not-found-page">
-    <img src="/static/img/404.svg" alt="">
-    <UiTitle
-      size="m"
-      responsive
-    >
-      Сторінка не знайдена
-    </UiTitle>
-
-    <UiText
-      size="l"
-      responsive
-      class="not-found-page__description"
-    >
-      За вказаною адресою нічого знайдено. Можливо, сторінка була видалена або посилання некоректне. Спробуйте скористатися одним із розділів:
-    </UiText>
-
-    <div class="not-found-page__navigation">
-      <UiText
-        v-for="item in SITE_NAV_ITEMS"
-        :key="item.text"
-        tag="RouterLink"
+  <UiContainer>
+    <div class="not-found-page">
+      <img src="/static/img/404.svg" alt="">
+      <UiTitle
         size="m"
-        strong
-        :to="item.link"
+        responsive
       >
-        {{ item.text }}
+        Сторінка не знайдена
+      </UiTitle>
+
+      <UiText
+        size="l"
+        responsive
+        class="not-found-page__description"
+      >
+        За вказаною адресою нічого знайдено. Можливо, сторінка була видалена або посилання некоректне. Спробуйте скористатися одним із розділів:
       </UiText>
+
+      <div class="not-found-page__navigation">
+        <UiText
+          v-for="item in SITE_NAV_ITEMS"
+          :key="item.text"
+          tag="RouterLink"
+          size="m"
+          strong
+          :to="item.link"
+        >
+          {{ item.text }}
+        </UiText>
+      </div>
     </div>
-  </div>
+  </UiContainer>
 </template>
 
 <style lang="scss">

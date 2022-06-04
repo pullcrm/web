@@ -15,8 +15,9 @@ import Opportunities from './components/Opportunities/Opportunities.vue'
 </script>
 
 <template>
-  <div class="home-page">
-    <!-- <pre>
+  <UiContainer>
+    <div class="home-page">
+      <!-- <pre>
       {{ pageData }}
     </pre>
 
@@ -26,24 +27,25 @@ import Opportunities from './components/Opportunities/Opportunities.vue'
       :key="index"
     /> -->
 
-    <Alert
-      class="home-page__alert"
-    />
+      <Alert
+        class="home-page__alert"
+      />
 
-    <Intro />
+      <Intro />
 
-    <Opportunities
-      class="home-page__section"
-    />
+      <Opportunities
+        class="home-page__section"
+      />
 
-    <About
-      class="home-page__section"
-    />
+      <About
+        class="home-page__section"
+      />
 
-    <Reviews
-      class="home-page__section"
-    />
-  </div>
+      <Reviews
+        class="home-page__section"
+      />
+    </div>
+  </UiContainer>
 </template>
 
 <style src="./HomePage.scss" lang="scss"></style>

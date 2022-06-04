@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { toPascalCase } from '~/utils/convert-text'
-
 interface IProps {
   data: any
   name: string
