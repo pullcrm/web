@@ -1,12 +1,4 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
-
-const emit = defineEmits([
-  'clear',
-  'change',
-  'update:modelValue',
-])
-
 const props = defineProps({
   modelValue: {
     type: [String, Number],
@@ -65,15 +57,21 @@ const props = defineProps({
   },
 })
 
-const input = ref(null)
+const emit = defineEmits([
+  'clear',
+  'change',
+  'update:modelValue',
+])
+
+const input = ref<HTMLInputElement | null>(null)
 
 const focus = () => {
-  input.value.focus()
+  input.value?.focus()
 }
 
-const blur = () => {
-  input.value.blur()
-}
+// const blur = () => {
+//   input.value?.blur()
+// }
 
 onMounted(() => {
   if (props.autofocus)

@@ -16,7 +16,7 @@ const routes = [
     redirect: '/documents/policy/',
   },
   {
-    path: '/documents/:catchAll(.*)',
+    path: '/documents/:slug(.*)',
     name: 'documentChild',
     component: () => import('./pages/DocumentPage/_child.vue'),
     meta: { model: 'document-page' },
@@ -28,13 +28,15 @@ const routes = [
     meta: { model: 'page' },
   },
   {
-    path: '/faq/:catchAll(.*)',
+    path: '/faq/:slug(.*)',
     name: 'faqChild',
     component: () => import('./pages/FaqPage/_child.vue'),
     meta: { model: 'faq-page' },
   },
+
+  // Dynamic page
   {
-    path: '/:catchAll(.*)',
+    path: '/:slug(.*)',
     name: 'dynamic-page',
     component: () => import('./pages/DynamicPage/_child.vue'),
     meta: { model: 'page' },

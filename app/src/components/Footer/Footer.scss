@@ -10,6 +10,7 @@
 
   &__sub-inner {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     margin-top: 16px;
     color: $ui-black-80;
@@ -40,7 +41,7 @@
     }
   }
 
-  @media (max-width: $ui-tablet) {
+  @media (min-width: $ui-tablet) {
     &__inner {
       flex-direction: row;
     }
@@ -50,7 +51,7 @@
     }
 
     &__sub-inner {
-      flex-direction: column;
+      flex-direction: row;
     }
   }
 }

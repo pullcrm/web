@@ -12,8 +12,8 @@ const mobileMenuOpen = ref(false)
       <div class="header__inner">
         <div class="header__logo">
           <UiText
-            tag="a"
-            href="/"
+            tag="RouterLink"
+            to="/"
             :aria-label="`${SITE_NAME}, back to home`"
             size="m"
             strong

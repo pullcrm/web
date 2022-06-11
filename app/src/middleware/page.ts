@@ -1,13 +1,14 @@
 import { api } from '../composables/api'
 
-export default async function ({ next, to }: any, ctx: any) {
-  const { writeResponse } = ctx
-
+export default async function ({ next, to }: any, { writeResponse }: any) {
   if (['faq-page', 'document-page', 'page'].includes(to.meta.model) === false)
     return
 
   try {
-    const path = [to.meta.model, to.params.catchAll].filter(Boolean).join('/')
+    // TODO: Refactor
+    const path = [to.meta.model, (to.params.slug || to.path.split('/').filter(Boolean).join('/'))]
+      .filter(Boolean)
+      .join('/')
 
     const { data } = await api.strapi.page(`/${path}`, { populate: 'deep,3' })
 

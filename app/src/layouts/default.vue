@@ -3,30 +3,33 @@ import Header from '~/components/Header/Header.vue'
 import Footer from '~/components/Footer/Footer.vue'
 import Logger from '~/components/Logger/Logger.vue'
 import { api } from '~/composables/api'
+import { prepareMeta } from '~/logics/meta'
 
 const route = useRoute()
 const attrs = useAttrs()
+
+const documents = ref([])
 
 const hasLogger = computed(() => {
   return route.query.__logger === '1'
 })
 
-const { data: documents } = await api.strapi.category('/document-page/', { populate: 'deep,0' })
+async function fetchDocuments() {
+  try {
+    const { data } = await api.strapi.category('/document-page/', { populate: 'deep,0' })
+
+    documents.value = data
+  }
+  catch (_err) {}
+}
 
 const seo = computed(() => {
   return (attrs.pageData as any)?.seo ?? {}
 })
 
-useHead({
-  title: computed(() => seo.value.metaTitle || SITE_NAME),
-  meta: computed(() => ([
-    seo.value.metaDescription && { name: 'description', content: seo.value.metaDescription },
-  ].filter(Boolean))),
-  link: computed(() => ([
-    { rel: 'icon', type: 'image/x-icon', href: '/static/logo-rounded.svg' },
-    seo.value.canonical && { rel: 'canonical', href: seo.value.canonical },
-  ].filter(Boolean))),
-})
+useHead(prepareMeta(seo))
+
+await fetchDocuments()
 </script>
 
 <template>

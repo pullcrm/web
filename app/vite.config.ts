@@ -43,6 +43,7 @@ export default defineConfig({
 
     Vue(),
 
+    // TODO: Not working
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
     Layouts(),
 
