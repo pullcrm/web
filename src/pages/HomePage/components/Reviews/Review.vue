@@ -34,8 +34,11 @@ const onLinkClick = (review: IReview) => {
     <UiText
       size="m"
       class="home-page-review__text"
-      v-html="review.content"
-    />
+    >
+      <div
+        v-html="review.content"
+      />
+    </UiText>
 
     <div class="home-page-review__author">
       <div

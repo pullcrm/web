@@ -59,7 +59,7 @@ const hasSuccessText = computed(() => {
     :class="{
       'ui-field_error': hasError,
       'ui-field_success': success,
-      'ui-field_required': required
+      'ui-field_required': required,
     }"
   >
     <div

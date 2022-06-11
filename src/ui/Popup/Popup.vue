@@ -37,7 +37,7 @@ const onClose = () => {
   <div
     class="ui-popup"
     :class="{
-      'ui-popup_full-page': fullPage
+      'ui-popup_full-page': fullPage,
     }"
     data-test="ui-popup"
     @keydown.esc="onClose"
