@@ -133,18 +133,18 @@ const onClose = () => {
       }
     }
 
-    @media (max-width: $ui-desktop - 1px) {
+    @media (max-width: ($ui-desktop - 1px)) {
       width: 456px;
     }
 
-    @media (max-width: $ui-laptop - 1px) {
+    @media (max-width: ($ui-laptop - 1px)) {
       width: 504px;
     }
 
-    @media (max-width: $ui-tablet - 1px) {
+    @media (max-width: ($ui-tablet - 1px)) {
       width: 416px;
 
-      @media (max-width: $ui-mobile-portrait - 1px) {
+      @media (max-width: ($ui-mobile-portrait - 1px)) {
         --ui-popup-padding: 12px;
 
         width: 328px;

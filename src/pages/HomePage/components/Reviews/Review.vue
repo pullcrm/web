@@ -7,12 +7,11 @@ interface IReview {
   content: string
 }
 
-defineProps({
-  review: {
-    type: Object as IReview,
-    required: true,
-  },
-})
+interface IProps {
+  review: IReview
+}
+
+defineProps<IProps>()
 
 const onLinkClick = (review: IReview) => {
   if (review.link)

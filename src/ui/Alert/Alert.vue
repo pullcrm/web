@@ -1,21 +1,18 @@
 <script lang="ts" setup>
-type theme =
+type ITheme =
   | 'info'
   | 'error'
   | 'warning'
   | 'success'
 
-defineProps({
-  theme: {
-    type: String as theme,
-    default: 'info',
-  },
+interface IProps {
+  theme?: ITheme
+  leftIcon?: string
+}
 
-  leftIcon: {
-    type: String,
-    default: undefined,
-  },
-})
+const props = defineProps<IProps>()
+
+const theme = computed(() => props.theme || 'info')
 </script>
 
 <template>

@@ -4,14 +4,11 @@ type IAlign =
   | 'center'
   | 'right'
 
-defineProps({
-  align: {
-    type: String as IAlign,
-    default: 'center',
-  },
-})
+const props = defineProps<{ align: IAlign }>()
 
 defineEmits(['close'])
+
+const align = computed(() => props.align || 'center')
 </script>
 
 <template>
@@ -100,8 +97,8 @@ defineEmits(['close'])
       }
     }
 
-    @media (max-width: $ui-tablet - 1px) {
-      @media (max-width: $ui-mobile-portrait - 1px) {
+    @media (max-width: ($ui-tablet - 1px)) {
+      @media (max-width: ($ui-mobile-portrait - 1px)) {
         .ui-popup {
           margin: 16px;
         }
