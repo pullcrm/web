@@ -10,9 +10,12 @@ const props = defineProps<{ items?: IFaqItem[] }>()
 const route = useRoute()
 
 const items = ref<IFaqItem[]>(props.items || [])
+const isLoading = ref(false)
 
 async function onFetchItems() {
   try {
+    isLoading.value = true
+
     const { data } = await onFetch(route.query.q as string)
 
     items.value = data
@@ -20,12 +23,16 @@ async function onFetchItems() {
   catch (err) {
     items.value = []
   }
+  finally {
+    isLoading.value = false
+  }
 }
 </script>
 
 <template>
   <div class="faq-page">
     <Search
+      :loading="isLoading"
       @input="onFetchItems"
     />
 

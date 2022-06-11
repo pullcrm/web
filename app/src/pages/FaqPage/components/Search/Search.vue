@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+defineProps<{ loading: boolean }>()
+
 const emit = defineEmits(['input'])
 
 const route = useRoute()
@@ -26,6 +28,7 @@ const onInput = debounce(async (value) => {
         <UiInput
           left-icon="outlined/magnifying-glass"
           placeholder="Шукати інформацію по розділу"
+          :loading="loading"
           :model-value="query"
           @update:model-value="onInput"
         />
