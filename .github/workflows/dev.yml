@@ -36,17 +36,17 @@ jobs:
       - name: Create the release folder on the server
         run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'mkdir /var/www/pullcrm.dev/web/versions/release-${{ steps.date.outputs.date }}'
         
-      - name: Upload the dist folder to the server
+      - name: Upload the project to the server
         run: rsync -r ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:'/var/www/pullcrm.dev/web/versions/release-${{ steps.date.outputs.date }}'
         
       - name: Link the release folder on the server
         run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'rm /var/www/pullcrm.dev/web/app && ln -s /var/www/pullcrm.dev/web/versions/release-${{ steps.date.outputs.date }} /var/www/pullcrm.dev/web/app'
 
       - name: Copy .env to project
-        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'cp /var/www/pullcrm.dev/web/.env.app /var/www/pullcrm.dev/web/release/.env'
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'cp /var/www/pullcrm.dev/web/.env.app /var/www/pullcrm.dev/web/app/.env'
 
       - name: Install modules and build project
-        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'source ~/.nvm/nvm.sh && nvm use 14 && cd /var/www/pullcrm.dev/web/release && yarn install && yarn build'
+        run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'source ~/.nvm/nvm.sh && nvm use 14 && cd /var/www/pullcrm.dev/web/app && yarn install && yarn build'
 
       - name: Delete old versions of project
         run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'cd /var/www/pullcrm.dev/web/versions && rm -rf `ls -t | tail -n +6`'
