@@ -23,7 +23,7 @@ const buttons = computed(() => {
         size="l"
         class="home-page-intro__title"
       >
-        <span>Онлайн запис2</span>
+        <span>Онлайн запис</span>
         Та облік клієнтів <br> для вашого бізнесу
       </UiTitle>
 
