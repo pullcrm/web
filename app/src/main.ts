@@ -11,8 +11,9 @@ export default viteSSR(
   {
     routes: setupLayouts(routes),
   },
-  ({ app, router }) => {
-    // { app, router, isClient, url, initialState, initialRoute, request, response }
+  (ctx) => {
+    const { app, router } = ctx
+    // { app, router, isClient, url, initialState, initialRoute, redirect, writeResponse, request, response }
     const head = createHead()
     app.use(head)
 
@@ -33,7 +34,7 @@ export default viteSSR(
         return next()
 
       for (const key in middlewares)
-        await middlewares[key].default({ from, to, next })
+        await middlewares[key].default({ from, to, next }, ctx)
 
       next()
     })

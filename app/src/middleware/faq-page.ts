@@ -14,16 +14,10 @@ export default async function ({ to }: any) {
   if (['faq'].includes(to.name) === false)
     return
 
-  try {
-    const { data } = await onFetch(to.query.q)
+  const { data } = await onFetch(to.query.q)
 
-    to.meta.state = {
-      ...to.meta.state,
-      items: data,
-    }
-  }
-  catch (error) {
-    console.error(error)
-    // redirect to error route
+  to.meta.state = {
+    ...to.meta.state,
+    items: data,
   }
 }

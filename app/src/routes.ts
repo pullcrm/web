@@ -35,9 +35,16 @@ const routes = [
   },
   {
     path: '/:catchAll(.*)',
-    name: 'not-found',
-    component: () => import('./pages/NotFound/NotFound.vue'),
+    name: 'dynamic-page',
+    component: () => import('./pages/DynamicPage/_child.vue'),
     meta: { model: 'page' },
+  },
+
+  // 404 page
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('./pages/NotFound/NotFound.vue'),
   },
 ]
 

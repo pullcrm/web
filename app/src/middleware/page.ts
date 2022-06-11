@@ -1,6 +1,8 @@
 import { api } from '../composables/api'
 
-export default async function ({ to }: any) {
+export default async function ({ next, to }: any, ctx: any) {
+  const { writeResponse } = ctx
+
   if (['faq-page', 'document-page', 'page'].includes(to.meta.model) === false)
     return
 
@@ -15,8 +17,13 @@ export default async function ({ to }: any) {
       pageData: data,
     }
   }
-  catch (error) {
-    console.error(error)
-    // redirect to error route
+  catch (err: any) {
+    if (import.meta.env.SSR) {
+      writeResponse({
+        status: err.status,
+      })
+    }
+
+    next({ name: '404' })
   }
 }

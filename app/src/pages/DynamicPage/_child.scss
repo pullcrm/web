@@ -1,0 +1,11 @@
+.dynamic-page {
+  &__section {
+    margin-top: 32px;
+  }
+
+  @media (min-width: $ui-laptop) {
+    &__section {
+      margin-top: 64px;
+    }
+  }
+}
