@@ -40,7 +40,7 @@
     }
   }
 
-  @media (min-width: $ui-tablet) {
+  @media (max-width: $ui-tablet) {
     &__inner {
       flex-direction: row;
     }

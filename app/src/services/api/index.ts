@@ -10,8 +10,8 @@ export const factory = (send: any) => ({
       return send(path, params, 'GET')
     },
 
-    pages(category: string, params?: IStrapiPageParams): Promise<any> {
-      return send(`/category/${category}`, params, 'GET')
+    category(path: string, params?: IStrapiPageParams): Promise<any> {
+      return send(`/category${path}`, params, 'GET')
     },
   },
 })

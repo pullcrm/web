@@ -5,7 +5,6 @@ import { createHead } from '@vueuse/head'
 import { setupLayouts } from 'virtual:generated-layouts'
 import { routes } from './routes'
 import App from './App.vue'
-import { api } from './composables/api'
 
 export default viteSSR(
   App,
@@ -27,23 +26,14 @@ export default viteSSR(
       app.component(`Ui${name}`, UiKit[key].default)
     }
 
-    // Before each route navigation we request the data needed for showing the page.
+    const middlewares = import.meta.globEager('./middleware/*.ts')
+
     router.beforeEach(async (to: any, from: any, next: any) => {
-      if (!!to.meta.state && Object.keys(to.meta.state).length > 0) {
-        // This route has state already (from server) so it can be reused.
-        // State is always empty in SPA development, but present in SSR development.
+      if (!!to.meta.state && Object.keys(to.meta.state).length > 0)
         return next()
-      }
 
-      try {
-        const { data } = await api.strapi.page(to.path, { populate: 'deep,3' })
-
-        to.meta.state = { server: true, pageData: data }
-      }
-      catch (error) {
-        console.error(error)
-        // redirect to error route
-      }
+      for (const key in middlewares)
+        await middlewares[key].default({ from, to, next })
 
       next()
     })

@@ -3,22 +3,17 @@ import Search from './components/Search/Search.vue'
 import Preview from './components/Preview/Preview.vue'
 
 import type { IFaqItem } from './types'
-import { api } from '~/composables/api'
-import type { IStrapiPageParams } from '~/services/api'
+import { onFetch } from '~/middleware/faq-page'
+
+const props = defineProps<{ items?: IFaqItem[] }>()
 
 const route = useRoute()
 
-const items = ref<IFaqItem[]>([])
+const items = ref<IFaqItem[]>(props.items || [])
 
-async function onFetch() {
+async function onFetchItems() {
   try {
-    // TODO: Fetch only needed data
-    const options: IStrapiPageParams = { populate: 'deep,2' }
-
-    if (route.query.q)
-      options._q = String(route.query.q)
-
-    const { data } = await api.strapi.pages('faq', options)
+    const { data } = await onFetch(route.query.q as string)
 
     items.value = data
   }
@@ -26,14 +21,12 @@ async function onFetch() {
     items.value = []
   }
 }
-
-await onFetch()
 </script>
 
 <template>
   <div class="faq-page">
     <Search
-      @input="onFetch"
+      @input="onFetchItems"
     />
 
     <UiContainer>

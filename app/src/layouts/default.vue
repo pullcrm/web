@@ -11,7 +11,7 @@ const hasLogger = computed(() => {
   return route.query.__logger === '1'
 })
 
-const { data: documents } = await api.strapi.pages('documents', { populate: 'deep,0' })
+const { data: documents } = await api.strapi.category('/document-page/', { populate: 'deep,0' })
 
 const seo = computed(() => {
   return (attrs.pageData as any)?.seo ?? {}

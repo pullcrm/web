@@ -1,10 +1,4 @@
 <script lang="ts" setup>
-interface IProps {
-  pageData?: any
-}
-
-const { pageData } = defineProps<IProps>()
-
 const isPopupOpen = ref<boolean>(false)
 
 watch(
@@ -41,7 +35,7 @@ watch(
         />
 
         <pre>
-          {{ pageData }}
+          {{ $attrs }}
         </pre>
       </div>
     </div>
@@ -52,7 +46,7 @@ watch(
   .logger-button {
     position: fixed;
     right: 44px;
-    bottom: 44px;
+    bottom: 60px;
     z-index: 90;
   }
 
