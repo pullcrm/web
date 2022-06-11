@@ -81,7 +81,7 @@ jobs:
         run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'mkdir /var/www/pullcrm.dev/web/versions/release-${{ steps.date.outputs.date }}'
         
       - name: Upload the dist folder to the server
-        run: rsync -r ./docs/.vitepress/dist ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:'/var/www/pullcrm.dev/web/versions/release-${{ steps.date.outputs.date }}'
+        run: rsync -r ./dist ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:'/var/www/pullcrm.dev/web/versions/release-${{ steps.date.outputs.date }}'
         
       - name: Link the release folder on the server
         run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} 'rm /var/www/pullcrm.dev/web/app && ln -s /var/www/pullcrm.dev/web/versions/release-${{ steps.date.outputs.date }} /var/www/pullcrm.dev/web/app'
