@@ -2,7 +2,7 @@ const routes = [
   {
     path: '/',
     component: () => import('./pages/HomePage/HomePage.vue'),
-    name: 'home',
+    name: 'index',
     meta: { model: 'page' },
   },
   {

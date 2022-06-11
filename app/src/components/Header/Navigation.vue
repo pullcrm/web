@@ -7,7 +7,7 @@ const navigation = computed(() => {
       ...item,
       isActive: computed(() => {
         if (item.link === '/')
-          return route.name === 'home'
+          return route.name === 'index'
 
         return route.path.includes(item.link)
       }),

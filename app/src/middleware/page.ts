@@ -6,7 +6,7 @@ export default async function ({ next, to }: any, { writeResponse }: any) {
 
   try {
     // TODO: Refactor
-    const path = [to.meta.model, (to.params.slug || to.path.split('/').filter(Boolean).join('/'))]
+    const path = [to.meta.model, (to.params.slug || to.name)]
       .filter(Boolean)
       .join('/')
 
