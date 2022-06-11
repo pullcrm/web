@@ -7,9 +7,13 @@ import { routes } from './routes'
 import App from './App.vue'
 import type { context } from './types'
 
+const normalizeRoutes = routes.map((route) => {
+  return { ...route, pathToRegexpOptions: { strict: true } }
+})
+
 export default viteSSR(
   App,
-  { routes: setupLayouts(routes) },
+  { routes: setupLayouts(normalizeRoutes) },
   (ctx: context) => {
     const head = createHead()
 
