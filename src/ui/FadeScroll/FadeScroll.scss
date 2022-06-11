@@ -1,0 +1,52 @@
+.ui-fade-scroll {
+  position: relative;
+
+  &__inner {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    align-items: stretch;
+    margin-right: -12px;
+    margin-left: -12px;
+    overflow: scroll;
+    white-space: nowrap;
+
+    &::before,
+    &::after {
+      display: inline-block;
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 12px;
+      content: '';
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include ui-hover {
+      overflow: auto;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 5;
+    width: 12px;
+    color: $ui-white;
+    content: '';
+
+    &:first-child {
+      left: -12px;
+      background: linear-gradient(to left, rgba($ui-white, 0) 0%, currentColor 100%);
+    }
+
+    &:last-child {
+      right: -12px;
+      background: linear-gradient(to right, rgba($ui-white, 0) 0%, currentColor 100%);
+    }
+  }
+}

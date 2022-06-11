@@ -1,0 +1,13 @@
+User-agent: *
+
+Disallow: /app/
+Disallow: /app/*
+
+Disallow: *q=*
+
+Allow: *favicon*
+Allow: */img/*
+Allow: */_nuxt/*
+Allow: */media*
+
+Sitemap: https://pullcrm.com/sitemap.xml

@@ -1,0 +1,19 @@
+.faq-page {
+  &__inner {
+    margin-top: 44px;
+  }
+
+  &__preview + &__preview {
+    margin-top: 24px;
+  }
+
+  @include ui-mobile-only {
+    &__inner {
+      margin-top: 24px;
+    }
+
+    &__preview + &__preview {
+      margin-top: 16px;
+    }
+  }
+}
