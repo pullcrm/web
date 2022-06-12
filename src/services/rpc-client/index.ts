@@ -6,23 +6,21 @@ import {
 interface IConstructorParams {
   endpoint: RpcClient['endpoint']
   headers?: RpcClient['headers']
+  params?: RpcClient['params']
 }
 
 export default class RpcClient {
   endpoint: string
   headers?: Record<string, string>
+  params?: Record<string, string>
 
   /**
    * Constructor
    */
   constructor(params: IConstructorParams) {
-    const {
-      headers,
-      endpoint,
-    } = params
-
-    this.endpoint = endpoint
-    this.headers = headers
+    this.endpoint = params.endpoint
+    this.headers = params.headers
+    this.params = params.params
   }
 
   /**
@@ -32,6 +30,11 @@ export default class RpcClient {
     const headers = {
       ...this.headers,
       'Content-Type': 'application/json',
+    }
+
+    params = {
+      ...params,
+      ...(this.params || {}),
     }
 
     const bodyParams = type !== 'GET'

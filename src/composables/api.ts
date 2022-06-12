@@ -24,6 +24,9 @@ export const useGlobalApi = createFetch({
 
 export const api = createApi(
   new RpcClient({
+    params: {
+      publicationState: import.meta.env.VITE_PUBLICATION_STATE,
+    },
     endpoint: import.meta.env.VITE_STRAPI_URL,
   }).call,
 )
