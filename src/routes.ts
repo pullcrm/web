@@ -11,10 +11,11 @@ const routes = [
     name: 'contacts',
     meta: { model: 'page' },
   },
-  {
-    path: '/documents/',
-    redirect: '/documents/policy/',
-  },
+
+  // {
+  //   path: '/documents/',
+  //   redirect: '/documents/policy/',
+  // },
   {
     path: '/documents/:slug(.*)',
     name: 'documentChild',
