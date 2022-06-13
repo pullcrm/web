@@ -3,10 +3,7 @@
     "baseUrl": ".",
     "module": "ESNext",
     "target": "ESNext",
-    "lib": [
-      "DOM",
-      "ESNext"
-    ],
+    "lib": ["DOM", "ESNext"],
     "strict": true,
     "esModuleInterop": true,
     "jsx": "preserve",
@@ -17,17 +14,13 @@
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "types": [
-      "vue/ref-macros"
+      "vite/client",
+      "vue/ref-macros",
+      "vite-plugin-vue-layouts/client"
     ],
     "paths": {
-      "~/*": [
-        "docs/.vitepress/*"
-      ]
+      "~/*": ["src/*"]
     }
   },
-  "exclude": [
-    "dist",
-    "node_modules",
-    "cypress"
-  ]
+  "exclude": ["dist", "node_modules"]
 }

@@ -1,0 +1,43 @@
+
+@import '~/ui/Text/Text_size_12';
+@import '~/ui/Text/Text_size_14';
+
+.breadcrumbs-item {
+  @include ui-text_size_14;
+
+  display: flex;
+  align-items: center;
+  color: $ui-black-80;
+
+  &__icon {
+    margin-right: 4px;
+    color: $ui-black-80;
+  }
+
+  &:first-child {
+    .breadcrumbs-item {
+      &__icon {
+        display: none;
+      }
+    }
+  }
+
+  a {
+    color: inherit;
+    transition: var(--ui-transition-hover);
+
+    @include ui-hover {
+      &:hover {
+        color: $ui-blue-brand;
+      }
+    }
+
+    &:active {
+      color: $ui-blue-brand;
+    }
+  }
+
+  @media (max-width: ($ui-tablet - 1px)) {
+    @include ui-text_size_12;
+  }
+}

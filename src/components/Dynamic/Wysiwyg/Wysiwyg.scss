@@ -1,0 +1,27 @@
+.wysiwyg {
+  @import './layout';
+
+  @mixin image-style {
+    max-width: 100%;
+    margin: 0 auto;
+    border: 1px solid $ui-black-20;
+
+    @include ui-mobile-only {
+      width: 100% !important;
+    }
+  }
+
+  figure.image {
+    @include image-style;
+  }
+
+  p {
+    img {
+      @include image-style;
+
+      display: block;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+  }
+}
