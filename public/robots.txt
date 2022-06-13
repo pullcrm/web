@@ -6,8 +6,8 @@ Disallow: /app/*
 Disallow: *q=*
 
 Allow: *favicon*
-Allow: */img/*
-Allow: */_nuxt/*
-Allow: */media*
+Allow: */static/*
+Allow: */ui-icons/*
+Allow: */assets/*
 
 Sitemap: https://pullcrm.com/sitemap/index.xml
