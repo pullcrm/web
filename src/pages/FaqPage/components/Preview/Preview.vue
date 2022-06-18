@@ -19,6 +19,7 @@ const seo = computed(() => {
   >
     <UiText
       size="l"
+      tag="h3"
       strong
       class="faq-page-preview__title"
     >

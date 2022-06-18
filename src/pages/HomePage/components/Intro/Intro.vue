@@ -34,7 +34,7 @@ useHead({
         size="l"
         class="home-page-intro__title"
       >
-        <span>Онлайн запис</span>
+        <strong>Онлайн запис</strong>
         Та облік клієнтів <br> для вашого бізнесу
       </UiTitle>
 
@@ -61,11 +61,11 @@ useHead({
 
         <UiButton
           tag="a"
-          href="#"
+          href="/app/registration/"
           size="m"
           theme="blue"
           right-icon="outlined/arrow-right"
-          @click.prevent="useAbsoluteLink('/app/registration/')"
+          target="_self"
         >
           Підключитись
         </UiButton>

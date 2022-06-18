@@ -5,6 +5,7 @@ import Opportunity from './Opportunity.vue'
 <template>
   <div class="home-page-opportunities">
     <UiTitle
+      tag="h2"
       size="m"
       class="home-page-opportunities__title"
     >

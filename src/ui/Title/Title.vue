@@ -1,41 +1,43 @@
-<script lang="ts">
-import { computed, defineComponent } from 'vue'
-
-export default defineComponent({
-  inheritAttrs: false,
-
-  props: {
-    size: {
-      type: String,
-      default: 'm',
-    },
-
-    tag: {
-      type: String,
-      default: 'div',
-    },
-
-    responsive: {
-      type: Boolean,
-      default: false,
-    },
-
-    leftIcon: {
-      type: String,
-      default: undefined,
-    },
-
-    rightIcon: {
-      type: String,
-      default: undefined,
-    },
+<script lang="ts" setup>
+const props = defineProps({
+  size: {
+    type: String,
+    default: 'm',
   },
 
-  // readonly tag: string
-  // readonly size: 's' | 'm' | 'l' | 'xl'
-  // readonly leftIcon?: string
-  // readonly rightIcon?: string
-  // readonly responsive: boolean
+  tag: {
+    type: String,
+    default: 'div',
+  },
+
+  responsive: {
+    type: Boolean,
+    default: false,
+  },
+
+  leftIcon: {
+    type: String,
+    default: undefined,
+  },
+
+  rightIcon: {
+    type: String,
+    default: undefined,
+  },
+})
+const slots = useSlots()
+// readonly tag: string
+// readonly size: 's' | 'm' | 'l' | 'xl'
+// readonly leftIcon?: string
+// readonly rightIcon?: string
+// readonly responsive: boolean
+
+const prepend = computed(() => {
+  return props.leftIcon || slots.prepend
+})
+
+const append = computed(() => {
+  return props.rightIcon || slots.append
 })
 </script>
 
@@ -45,6 +47,8 @@ export default defineComponent({
     class="ui-title"
     :class="[
       `ui-title_size_${size}`,
+      { 'ui-title_has-append': Boolean(append) },
+      { 'ui-title_has-prepend': Boolean(prepend) },
       { 'ui-title_responsive': responsive },
     ]"
     v-bind="$attrs"
@@ -65,9 +69,14 @@ export default defineComponent({
       <slot name="prepend" />
     </span>
 
-    <div class="ui-title__content">
+    <div
+      v-if="append || prepend"
+      class="ui-title__content"
+    >
       <slot />
     </div>
+
+    <slot v-else />
 
     <span
       v-if="rightIcon"

@@ -25,6 +25,15 @@ const onInput = debounce(async (value) => {
   <div class="faq-page-search">
     <UiContainer>
       <div class="faq-page-search__inner">
+        <UiTitle
+          tag="h1"
+          size="s"
+          responsive
+          class="faq-page-search__title"
+        >
+          Питання та відповіді
+        </UiTitle>
+
         <UiInput
           left-icon="outlined/magnifying-glass"
           placeholder="Шукати інформацію по розділу"
@@ -59,6 +68,10 @@ const onInput = debounce(async (value) => {
         height: 52px;
       }
     }
+  }
+
+  &__title {
+    margin-bottom: 8px;
   }
 
   @include ui-mobile-only {

@@ -36,8 +36,9 @@ const reviews = computed(() => {
     class="home-page-reviews"
   >
     <UiTitle
-      class="home-page-reviews__title"
+      tag="h2"
       size="m"
+      class="home-page-reviews__title"
     >
       Відгуки наших клієнтів
     </UiTitle>
