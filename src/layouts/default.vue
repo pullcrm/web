@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import Header from '~/components/Header/Header.vue'
-import type { IDocumentLink } from '~/components/Footer/Footer.vue'
 import Footer from '~/components/Footer/Footer.vue'
 import Logger from '~/components/Logger/Logger.vue'
 import { prepareMeta } from '~/logics/meta'
+import type { IDocumentLink } from '~/interfaces'
 
 const route = useRoute()
 const attrs = useAttrs()

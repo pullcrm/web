@@ -19,6 +19,7 @@ useHead({
     {
       rel: 'preload',
       as: 'image',
+      media: '(max-width: 600px)',
       href: '/static/img/landing-intro_mobile.webp',
     },
   ],

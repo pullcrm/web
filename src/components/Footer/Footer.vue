@@ -1,11 +1,7 @@
 <script lang="ts" setup>
-defineProps<IProps>()
+import type { IDocumentLink } from '~/interfaces'
 
-export interface IDocumentLink {
-  id: number
-  slug: string
-  title: string
-}
+defineProps<IProps>()
 
 interface IProps {
   documents: IDocumentLink[]
