@@ -6,8 +6,8 @@ export const websiteScheme = {
   'url': 'https://pullcrm.com',
   'potentialAction': {
     '@type': 'SearchAction',
-    'target': 'https://pullcrm.com/faq/?q={query}',
-    'query': 'required',
+    'target': 'https://pullcrm.com/faq/?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
   },
 }
 
