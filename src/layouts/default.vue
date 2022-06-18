@@ -1,35 +1,24 @@
 <script lang="ts" setup>
 import Header from '~/components/Header/Header.vue'
+import type { IDocumentLink } from '~/components/Footer/Footer.vue'
 import Footer from '~/components/Footer/Footer.vue'
 import Logger from '~/components/Logger/Logger.vue'
-import { api } from '~/composables/api'
 import { prepareMeta } from '~/logics/meta'
 
 const route = useRoute()
 const attrs = useAttrs()
 
-const documents = ref([])
+const documents = attrs.footerDocuments as IDocumentLink[]
 
 const hasLogger = computed(() => {
   return route.query.__logger === '1'
 })
-
-async function fetchDocuments() {
-  try {
-    const { data } = await api.strapi.category('/document-page/', { populate: 'deep,0' })
-
-    documents.value = data
-  }
-  catch (_err) {}
-}
 
 const seo = computed(() => {
   return (attrs.pageData as any)?.seo ?? {}
 })
 
 useHead(prepareMeta(seo))
-
-await fetchDocuments()
 </script>
 
 <template>

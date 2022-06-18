@@ -22,6 +22,8 @@ const mobileMenuOpen = ref(false)
             <template #prepend>
               <img
                 :src="SITE_LOGO_URL"
+                width="32"
+                height="32"
                 alt="Logo"
               >
             </template>
@@ -72,7 +74,6 @@ const mobileMenuOpen = ref(false)
 
   &__logo {
     img {
-      width: 32px;
       border-radius: 2px;
     }
   }

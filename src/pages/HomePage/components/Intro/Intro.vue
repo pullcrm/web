@@ -13,6 +13,16 @@ const buttons = computed(() => {
     { id: 2, name: 'Салон краси' },
   ]
 })
+
+useHead({
+  link: [
+    {
+      rel: 'preload',
+      as: 'image',
+      href: '/static/img/landing-intro.webp',
+    },
+  ],
+})
 </script>
 
 <template>
@@ -72,10 +82,11 @@ const buttons = computed(() => {
         Подивитись
       </UiButton>
 
-      <img
-        src="/static/img/landing-intro.png"
-        alt="pullcrm intro image"
-      >
+      <picture>
+        <source srcset="/static/img/landing-intro.webp" type="image/webp">
+        <source srcset="/static/img/landing-intro.png" type="image/png">
+        <img src="/static/img/landing-intro.png" alt="pullcrm intro image">
+      </picture>
     </div>
   </div>
 
