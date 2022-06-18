@@ -1,3 +1,5 @@
+import { localBusinessScheme, organizationScheme, websiteScheme } from './schema'
+
 function getOpenGraph(seo: any) {
   return [
     seo.value.metaImage && (
@@ -28,6 +30,10 @@ export function prepareMeta(seo: any) {
         type: 'application/ld+json',
         children: JSON.stringify(seo.value.structuredData),
       }),
+      ...[websiteScheme, organizationScheme, localBusinessScheme].map(schema => ({
+        type: 'application/ld+json',
+        children: JSON.stringify(schema),
+      })),
     ].filter(Boolean))),
   }
 }
