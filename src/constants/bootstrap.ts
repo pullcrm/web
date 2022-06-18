@@ -1,5 +1,8 @@
 export const SITE_NAME = 'Pullcrm'
 
+export const SEO_TITLE_DEFAULT = 'Облік клієнтів та онлайн запис - pullcrm'
+export const SEO_DESCRIPTION_DEFAULT = 'Система обліку та автоматизації запису для салонів краси, барбершопів в Україні'
+
 export const SITE_LOGO_URL = '/static/logo-rounded.svg'
 
 export const SITE_NAV_ITEMS = [
