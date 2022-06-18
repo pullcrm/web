@@ -1,11 +1,6 @@
 <script lang="ts">
 export default {
   name: 'App',
-  data() {
-    return {
-      count: 0,
-    }
-  },
 }
 </script>
 
@@ -16,18 +11,3 @@ export default {
     </Suspense>
   </RouterView>
 </template>
-
-<style scoped>
-nav {
-  display: flex;
-  justify-content: space-between;
-  width: 500px;
-  margin-top: 20px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 20px;
-  background: #efefef;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-</style>

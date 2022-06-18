@@ -19,6 +19,7 @@ useHead({
     {
       rel: 'preload',
       as: 'image',
+      media: '(max-width: 600px)',
       href: '/static/img/landing-intro_mobile.webp',
     },
   ],
@@ -33,7 +34,7 @@ useHead({
         size="l"
         class="home-page-intro__title"
       >
-        <span>Онлайн запис</span>
+        <strong>Онлайн запис</strong>
         Та облік клієнтів <br> для вашого бізнесу
       </UiTitle>
 
@@ -60,11 +61,11 @@ useHead({
 
         <UiButton
           tag="a"
-          href="#"
+          href="/app/registration/"
           size="m"
           theme="blue"
           right-icon="outlined/arrow-right"
-          @click.prevent="useAbsoluteLink('/app/registration/')"
+          target="_self"
         >
           Підключитись
         </UiButton>

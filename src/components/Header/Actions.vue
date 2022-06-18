@@ -1,16 +1,15 @@
 <script lang="ts" setup>
-import { useAbsoluteLink } from '~/composables/location'
 </script>
 
 <template>
   <div class="header-actions">
     <UiText
       tag="a"
-      href="#"
+      href="/app/login/"
+      target="_self"
       size="m"
       strong
       class="header-actions__login"
-      @click.prevent="useAbsoluteLink('/app/login/')"
     >
       Увійти
     </UiText>
@@ -19,11 +18,11 @@ import { useAbsoluteLink } from '~/composables/location'
 
     <UiText
       tag="a"
-      href="#"
+      href="/app/registration/"
+      target="_self"
       size="m"
       strong
       class="header-actions__registration"
-      @click.prevent="useAbsoluteLink('/app/registration/')"
     >
       Реєстрація
     </UiText>

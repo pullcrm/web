@@ -50,12 +50,12 @@ import CustomerForm from './components/CustomerForm.vue'
         <div class="contacts-page-info__column">
           <UiText
             tag="a"
-            href="tel:+380633103240"
+            :href="`tel:${SITE_PHONE}`"
             size="l"
             left-icon="outlined/phone"
             responsive
           >
-            +38 063 310 32 40
+            (063) 310 32 40
           </UiText>
 
           <UiText

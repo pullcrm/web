@@ -10,4 +10,8 @@ Allow: */static/*
 Allow: */ui-icons/*
 Allow: */assets/*
 
+Allow: /app/login/
+Allow: /app/restore/
+Allow: /app/registration/
+
 Sitemap: https://pullcrm.com/sitemap/index.xml

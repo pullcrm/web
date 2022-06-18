@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { useAbsoluteLink } from '~/composables/location'
 </script>
 
 <template>
@@ -9,6 +8,7 @@ import { useAbsoluteLink } from '~/composables/location'
     class="home-page-about"
   >
     <UiTitle
+      tag="h2"
       size="m"
       responsive
       class="home-page-about__title"
@@ -30,10 +30,10 @@ import { useAbsoluteLink } from '~/composables/location'
 
       <UiButton
         tag="a"
-        href="#"
+        href="/app/registration/"
+        target="_self"
         size="m"
         theme="blue"
-        @click.prevent="useAbsoluteLink('/app/registration/')"
       >
         Підключитись
       </UiButton>

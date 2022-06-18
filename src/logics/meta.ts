@@ -1,12 +1,39 @@
+import { localBusinessScheme, organizationScheme, websiteScheme } from './schema'
+
+function getOpenGraph(seo: any) {
+  return [
+    seo.value.metaImage && (
+      { vhid: 'og:image', property: 'og:image', content: `https://${import.meta.env.VITE_SITE_HOSTNAME}${seo.value.metaImage.url}` }
+    ),
+  ]
+}
+
 export function prepareMeta(seo: any) {
+  const route = useRoute()
+
   return {
-    title: computed(() => seo.value.metaTitle || SITE_NAME),
+    title: computed(() => seo.value.metaTitle || SEO_TITLE_DEFAULT),
     meta: computed(() => ([
-      seo.value.metaDescription && { name: 'description', content: seo.value.metaDescription },
+      { name: 'description', content: seo.value.metaDescription || SEO_DESCRIPTION_DEFAULT },
+
+      seo.value.metaRobots && (
+        { hid: 'robots', name: 'robots', content: seo.value.metaRobots }
+      ),
+
+      ...getOpenGraph(seo),
     ].filter(Boolean))),
     link: computed(() => ([
-      { rel: 'icon', type: 'image/x-icon', href: '/static/logo-rounded.svg' },
-      seo.value.canonical && { rel: 'canonical', href: seo.value.canonical },
+      { rel: 'canonical', href: seo.value.canonicalURL || `https://${import.meta.env.VITE_SITE_HOSTNAME}${route.path}` },
+    ].filter(Boolean))),
+    script: computed(() => ([
+      seo.value.structuredData && ({
+        type: 'application/ld+json',
+        children: JSON.stringify(seo.value.structuredData),
+      }),
+      ...[websiteScheme, organizationScheme, localBusinessScheme].map(schema => ({
+        type: 'application/ld+json',
+        children: JSON.stringify(schema),
+      })),
     ].filter(Boolean))),
   }
 }

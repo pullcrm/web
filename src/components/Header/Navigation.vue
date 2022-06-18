@@ -17,7 +17,13 @@ const navigation = computed(() => {
 </script>
 
 <template>
-  <div class="landing-navigation">
+  <nav
+    itemscope
+    itemtype="http://schema.org/SiteNavigationElement"
+    class="landing-navigation"
+  >
+    <meta itemprop="name" content="Головне меню">
+
     <UiText
       v-for="item in navigation"
       :key="item.text"
@@ -25,11 +31,12 @@ const navigation = computed(() => {
       size="m"
       strong
       :to="item.link"
+      itemprop="url"
       :class="{ '_is-active': item.isActive.value }"
     >
       {{ item.text }}
     </UiText>
-  </div>
+  </nav>
 </template>
 
 <style lang="scss">
