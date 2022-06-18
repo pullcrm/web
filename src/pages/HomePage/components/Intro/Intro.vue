@@ -13,6 +13,16 @@ const buttons = computed(() => {
     { id: 2, name: 'Салон краси' },
   ]
 })
+
+useHead({
+  link: [
+    {
+      rel: 'preload',
+      as: 'image',
+      href: '/static/img/landing-intro_mobile.webp',
+    },
+  ],
+})
 </script>
 
 <template>
