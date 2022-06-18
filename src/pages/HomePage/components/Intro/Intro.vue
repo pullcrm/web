@@ -98,7 +98,7 @@ const buttons = computed(() => {
         <img
           srcset="/static/img/landing-intro_mobile.png 600w"
           sizes="(max-width: 600px) 600px"
-          src="siteimages/image-full.jpg"
+          src="/static/img/landing-intro.png"
           alt="pullcrm intro image"
         >
       </picture>
