@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-interface IDocumentLink {
+defineProps<IProps>()
+
+export interface IDocumentLink {
   id: number
   slug: string
   title: string
@@ -8,8 +10,6 @@ interface IDocumentLink {
 interface IProps {
   documents: IDocumentLink[]
 }
-
-defineProps<IProps>()
 </script>
 
 <template>
