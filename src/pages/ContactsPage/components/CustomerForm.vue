@@ -167,7 +167,7 @@ const onSubmit = async () => {
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 485px;
+      min-height: 450px;
       color: $ui-white;
       text-align: center;
       background-image: url('/static/img/contacts-bg.jpeg');
@@ -212,6 +212,7 @@ const onSubmit = async () => {
       &__panel {
         align-items: flex-start;
         justify-content: center;
+        min-height: 485px;
         text-align: left;
       }
 

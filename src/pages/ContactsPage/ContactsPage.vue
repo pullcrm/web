@@ -26,7 +26,7 @@ import CustomerForm from './components/CustomerForm.vue'
         <div class="contacts-page-info__column">
           <UiText
             tag="a"
-            href="https://t.me/pullcrm"
+            :href="SITE_SOCIAL_TELEGRAM"
             target="_blank"
             size="l"
             left-icon="outlined/telegram-logo"
@@ -37,7 +37,7 @@ import CustomerForm from './components/CustomerForm.vue'
 
           <UiText
             tag="a"
-            href="https://instagram.com/pullcrm"
+            :href="SITE_SOCIAL_INSTAGRAM"
             target="_blank"
             size="l"
             left-icon="outlined/instagram-logo"
@@ -60,12 +60,12 @@ import CustomerForm from './components/CustomerForm.vue'
 
           <UiText
             tag="a"
-            href="mailto:pullrm.com@gmail.com"
+            :href="`mailto:${SITE_EMAIL}`"
             size="l"
             left-icon="outlined/envelope-simple"
             responsive
           >
-            pullrm.com@gmail.com
+            {{ SITE_EMAIL }}
           </UiText>
         </div>
       </UiPanel>

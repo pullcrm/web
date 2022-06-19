@@ -9,56 +9,83 @@ interface IProps {
 </script>
 
 <template>
-  <div class="landing-footer">
+  <div class="footer">
     <UiContainer>
-      <div class="landing-footer__inner">
-        <UiText
-          size="m"
-          class="landing-footer__about"
-        >
-          <strong>Pullcrm</strong> — зручний інструмент <br> автоматизації запису для вашої компанії
-        </UiText>
+      <div class="footer__grid">
+        <div class="footer__column">
+          <UiText
+            size="m"
+            class="footer__about"
+          >
+            <strong>Pullcrm</strong> — зручний інструмент <br> автоматизації запису для вашої компанії
+          </UiText>
 
-        <div class="landing-footer__links">
-          <!-- <UiText
+          <div class="footer__payment">
+            <UiText
+              size="s"
+              responsive
+            >
+              Приймаємо оплату:
+            </UiText>
+            <img src="/static/img/liqpay.webp" alt="">
+          </div>
+        </div>
+        <div class="footer__column footer__documents">
+          <UiText
+            strong
+            size="m"
+            class="footer__column-title"
+          >
+            Документи
+          </UiText>
+
+          <UiText
+            v-for="item in documents"
+            :key="item.id"
             tag="RouterLink"
-            to="/faq/"
+            :to="`/documents/${item.slug}/`"
             size="m"
           >
-            FAQ
-          </UiText> -->
+            {{ item.title }}
+          </UiText>
+        </div>
+        <div class="footer__column footer__socials">
+          <UiText
+            strong
+            size="m"
+            class="footer__column-title"
+          >
+            Соціальні мережі
+          </UiText>
+
+          <!-- TODO: Add colored icons to social links -->
+          <UiText
+            tag="a"
+            size="m"
+            :href="SITE_SOCIAL_TELEGRAM"
+            target="_blank"
+            left-icon="outlined/telegram-logo"
+          >
+            Telegram
+          </UiText>
 
           <UiText
             tag="a"
-            href="https://t.me/pullcrm"
-            target="_blank"
             size="m"
+            :href="SITE_SOCIAL_INSTAGRAM"
+            target="_blank"
+            left-icon="outlined/instagram-logo"
           >
-            <template #prepend>
-              <img
-                src="/static/img/t_logo.svg"
-                width="18"
-                height="18"
-                alt="telegram"
-              >
-            </template>
-
-            Telegram
+            Instagram
           </UiText>
         </div>
       </div>
 
-      <div class="landing-footer__sub-inner">
-        <UiText
-          v-for="item in documents"
-          :key="item.id"
-          tag="RouterLink"
-          :to="`/documents/${item.slug}/`"
-          size="m"
-        >
-          {{ item.title }}
-        </UiText>
+      <div class="footer__inner">
+        <div class="footer__links" />
       </div>
+
+      <div class="footer__sub-inner" />
     </UiContainer>
   </div>
 </template>
