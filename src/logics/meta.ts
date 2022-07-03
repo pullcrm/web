@@ -3,7 +3,7 @@ import { localBusinessScheme, organizationScheme, websiteScheme } from './schema
 function getOpenGraph(seo: any) {
   return [
     seo.value.metaImage && (
-      { vhid: 'og:image', property: 'og:image', content: `https://${import.meta.env.VITE_SITE_HOSTNAME}${seo.value.metaImage.url}` }
+      { vhid: 'og:image', property: 'og:image', content: `https://${import.meta.env.VITE_SITE_IMAGES_HOSTNAME}${seo.value.metaImage.url}` }
     ),
   ]
 }
