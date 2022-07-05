@@ -1,11 +1,12 @@
 <script lang="ts" setup>
+import { prepareAppLinkByPath } from '~/logics/app'
 </script>
 
 <template>
   <div class="header-actions">
     <UiText
       tag="a"
-      href="/app/login/"
+      :href="prepareAppLinkByPath('/login/')"
       target="_self"
       size="m"
       strong
@@ -18,7 +19,7 @@
 
     <UiText
       tag="a"
-      href="/app/registration/"
+      :href="prepareAppLinkByPath('/registration/')"
       target="_self"
       size="m"
       strong

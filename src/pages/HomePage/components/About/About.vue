@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { prepareAppLinkByPath } from '~/logics/app'
 </script>
 
 <template>
@@ -30,7 +31,7 @@
 
       <UiButton
         tag="a"
-        href="/app/registration/"
+        :href="prepareAppLinkByPath('/registration/')"
         target="_self"
         size="m"
         theme="blue"
