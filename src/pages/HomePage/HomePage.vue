@@ -27,9 +27,9 @@ import Opportunities from './components/Opportunities/Opportunities.vue'
       :key="index"
     /> -->
 
-      <!-- <Alert
+      <Alert
         class="home-page__alert"
-      /> -->
+      />
 
       <Intro />
 
