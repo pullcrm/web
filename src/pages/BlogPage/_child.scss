@@ -1,4 +1,4 @@
-.faq-child-page {
+.blog-child-page {
   &__section {
     margin-top: 32px;
   }
@@ -9,6 +9,15 @@
 
   &__title {
     margin-bottom: 24px;
+  }
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 8px;
+    color: $ui-black-80;
+    column-gap: 4px;
   }
 
   @media (min-width: $ui-laptop) {

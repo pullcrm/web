@@ -29,17 +29,17 @@ const breadcrumbs = computed(() => {
 
 <template>
   <UiContainer>
-    <div class="document-child-page">
+    <div class="faq-child-page">
       <Breadcrumbs
         :items="breadcrumbs"
-        class="document-child-page__breadcrumbs"
+        class="faq-child-page__breadcrumbs"
       />
 
       <UiTitle
         tag="h1"
         size="l"
         responsive
-        class="document-child-page__title"
+        class="faq-child-page__title"
       >
         {{ pageData.title }}
       </UiTitle>

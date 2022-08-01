@@ -1,16 +1,17 @@
 import { api } from '../composables/api'
 
 export default async function ({ next, to }: any, { writeResponse }: any) {
-  if (['faq-page', 'document-page', 'page'].includes(to.meta.model) === false)
+  if (['faq-page', 'document-page', 'page', 'article', 'articles-category'].includes(to.meta.model) === false)
     return
 
   try {
-    // TODO: Refactor
-    const path = [to.meta.model, (to.params.slug || to.name)]
-      .filter(Boolean)
-      .join('/')
-
-    const { data } = await api.strapi.page(`/${path}`, { populate: 'deep,3' })
+    const { data } = await api.strapi.page({
+      model: to.meta.model,
+      slug: to.params.slug || to.name,
+      category: to.params.category,
+      categoryKey: to.meta.categoryKey,
+      populate: 'deep,3',
+    })
 
     to.meta.state = {
       ...to.meta.state,

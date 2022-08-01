@@ -1,0 +1,23 @@
+.blog-page {
+  &__breadcrumbs {
+    margin: 16px 0;
+  }
+
+  &__preview + &__preview {
+    margin-top: 24px;
+  }
+
+  &__items {
+    margin-top: 40px;
+  }
+
+  @include ui-mobile-only {
+    &__items {
+      margin-top: 24px;
+    }
+
+    &__preview + &__preview {
+      margin-top: 16px;
+    }
+  }
+}

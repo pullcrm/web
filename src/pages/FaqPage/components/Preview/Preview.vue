@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { IFaqItem } from '../../types'
+import type { IFaqItem } from '~/dto'
 
 const props = defineProps<{ item: IFaqItem }>()
 
