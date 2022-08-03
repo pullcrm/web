@@ -19,14 +19,10 @@ export const SITE_NAV_ITEMS = [
     text: 'FAQ',
     link: '/faq/',
   },
-  // {
-  //   text: 'Блог',
-  //   link: '/blog/',
-  // },
-  // {
-  //   text: 'Документи',
-  //   link: '/documents/',
-  // },
+  {
+    text: 'Блог',
+    link: '/blog/',
+  },
   {
     text: 'Контакти',
     link: '/contacts/',
