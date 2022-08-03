@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { useAbsoluteLink } from '~/composables/location'
+import { prepareAppLinkByPath } from '~/logics/app'
 
 import Youtube from '~/components/Youtube/Youtube.vue'
 
@@ -54,14 +54,14 @@ useHead({
           href="#"
           size="m"
           theme="info-outlined"
-          @click.prevent="useAbsoluteLink(`/app/registration/?companyType=${button.id}`)"
+          @click.prevent="prepareAppLinkByPath(`/registration/?companyType=${button.id}`)"
         >
           {{ button.name }}
         </UiButton>
 
         <UiButton
           tag="a"
-          href="/app/registration/"
+          :href="prepareAppLinkByPath('/registration/')"
           size="m"
           theme="blue"
           right-icon="outlined/arrow-right"

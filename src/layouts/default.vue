@@ -11,6 +11,9 @@ const attrs = useAttrs()
 const documents = attrs.footerDocuments as IDocumentLink[]
 
 const hasLogger = computed(() => {
+  if (import.meta.env.VITE_HAS_LOGGER === 'true')
+    return true
+
   return route.query.__logger === '1'
 })
 

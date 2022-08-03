@@ -20,6 +20,10 @@ export const SITE_NAV_ITEMS = [
     link: '/faq/',
   },
   // {
+  //   text: 'Блог',
+  //   link: '/blog/',
+  // },
+  // {
   //   text: 'Документи',
   //   link: '/documents/',
   // },

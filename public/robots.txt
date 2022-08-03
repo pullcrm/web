@@ -1,17 +1,11 @@
 User-agent: *
 
-Disallow: /app/
-Disallow: /app/*
-
+Allow: *
 Disallow: *q=*
 
 Allow: *favicon*
 Allow: */static/*
 Allow: */ui-icons/*
 Allow: */assets/*
-
-Allow: /app/login/
-Allow: /app/restore/
-Allow: /app/registration/
 
 Sitemap: https://pullcrm.com/sitemap/index.xml

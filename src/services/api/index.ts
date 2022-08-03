@@ -1,4 +1,8 @@
 export interface IStrapiPageParams {
+  model?: string
+  slug?: string | null
+  category?: string
+  categoryKey?: string
   populate?: string | object
   fields?: string
   _q?: string
@@ -6,12 +10,12 @@ export interface IStrapiPageParams {
 
 export const factory = (send: any) => ({
   strapi: {
-    page(path: string, params?: IStrapiPageParams): Promise<any> {
-      return send(path, params, 'GET')
+    page(params?: IStrapiPageParams): Promise<any> {
+      return send('/page', params, 'GET')
     },
 
-    category(path: string, params?: IStrapiPageParams): Promise<any> {
-      return send(`/category${path}`, params, 'GET')
+    category(params?: IStrapiPageParams): Promise<any> {
+      return send('/items', params, 'GET')
     },
   },
 })

@@ -10,7 +10,7 @@ const query = computed(() => {
   return route.query.q || ''
 })
 
-const onInput = debounce(async (value) => {
+async function onInput(value: string) {
   await router.replace({
     query: {
       q: value || undefined,
@@ -18,7 +18,7 @@ const onInput = debounce(async (value) => {
   })
 
   emit('input')
-}, 600)
+}
 </script>
 
 <template>

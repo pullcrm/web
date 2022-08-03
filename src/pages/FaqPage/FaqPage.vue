@@ -2,7 +2,7 @@
 import Search from './components/Search/Search.vue'
 import Preview from './components/Preview/Preview.vue'
 
-import type { IFaqItem } from './types'
+import type { IFaqItem } from '~/dto'
 import { onFetch } from '~/middleware/faq-page'
 
 const props = defineProps<{ items?: IFaqItem[] }>()
@@ -12,21 +12,18 @@ const route = useRoute()
 const items = ref<IFaqItem[]>(props.items || [])
 const isLoading = ref(false)
 
-async function onFetchItems() {
+const onFetchItems = debounce(async () => {
   try {
     isLoading.value = true
 
-    const { data } = await onFetch(route.query.q as string)
+    const result = await onFetch(route.query.q as string)
 
-    items.value = data
-  }
-  catch (err) {
-    items.value = []
+    items.value = result
   }
   finally {
     isLoading.value = false
   }
-}
+}, 600)
 </script>
 
 <template>
