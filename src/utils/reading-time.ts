@@ -1,4 +1,4 @@
-const WORD_PER_MINUTE = 225
+const WORD_PER_MINUTE = 180
 
 export function readingTime(text: string) {
   const words = text.trim().split(/\s+/).length
