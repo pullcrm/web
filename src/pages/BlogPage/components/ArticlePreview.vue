@@ -46,7 +46,7 @@ const timeToRead = readingTime(props.item.content ?? '')
         size="m"
         class="blog-page-article-preview__content"
       >
-        {{ content.slice(0, 256) }}
+        {{ `${content.slice(0, 256)}...` }}
       </UiText>
 
       <UiText
