@@ -6,6 +6,9 @@ export interface IStrapiPageParams {
   populate?: string | object
   fields?: string
   _q?: string
+  sort?: string
+  'pagination[page]'?: number
+  'pagination[pageSize]'?: number
 }
 
 export const factory = (send: any) => ({

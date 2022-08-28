@@ -1,11 +1,10 @@
 <script lang="ts" setup>
 import BreadcrumbsItem from './BreadcrumbsItem.vue'
 
+import type { IBreadcrumbsItem } from '~/dto'
+
 interface IProps {
-  items: Array<{
-    title: string
-    to?: any | null
-  }>
+  items: Array<IBreadcrumbsItem>
 }
 
 defineProps<IProps>()

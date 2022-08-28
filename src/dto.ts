@@ -15,3 +15,15 @@ export interface IBlogItem {
   category: any | null
   updatedAt: string
 }
+
+export interface IBreadcrumbsItem {
+  title: string
+  to?: any | null
+}
+
+export interface IPagination {
+  page: number
+  pageSize: number
+  pageCount: number
+  total: number
+}

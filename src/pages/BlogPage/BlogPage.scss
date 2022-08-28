@@ -11,6 +11,10 @@
     margin-top: 40px;
   }
 
+  &__pagination {
+    margin-top: 40px;
+  }
+
   @include ui-mobile-only {
     &__items {
       margin-top: 24px;
