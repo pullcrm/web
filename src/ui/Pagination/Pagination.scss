@@ -1,0 +1,121 @@
+@mixin ui-pagination_size_12 {
+  .ui-pagination__pages {
+    @include ui-typo-12;
+
+    .ui-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .ui-pagination__items {
+    height: 32px;
+  }
+
+  .ui-pagination__item {
+    min-width: 24px;
+    height: 24px;
+  }
+}
+
+@mixin ui-pagination_size_14 {
+  .ui-pagination__pages {
+    @include ui-typo-14;
+
+    .ui-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .ui-pagination__items {
+    height: 40px;
+  }
+
+  .ui-pagination__item {
+    min-width: 32px;
+    height: 32px;
+  }
+}
+
+.ui-pagination {
+  &__pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ui-icon {
+      @include ui-extend-click-area(4px);
+    }
+  }
+
+  &__load-more {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  &_size_m {
+    @include ui-pagination_size_12;
+  }
+
+  &_size_l {
+    @include ui-pagination_size_14;
+  }
+
+  &__prev,
+  &__next {
+    display: inline-block;
+
+    &._disabled {
+      color: $ui-black-60;
+      pointer-events: none;
+    }
+  }
+
+  &__items {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 4px;
+    background-color: $ui-white;
+    border: 1px solid $ui-black-40;
+    border-radius: 40px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+    padding: 0 4px;
+    text-align: center;
+    border-radius: 100px;
+    transition:
+      color var(--ui-transition-hover),
+      background-color var(--ui-transition-hover);
+
+    &:active {
+      color: $ui-blue-brand;
+      background-color: $ui-blue-10;
+    }
+
+    &._active {
+      color: $ui-white;
+      background-color: $ui-blue-brand;
+    }
+
+    @include ui-hover {
+      &:hover {
+        color: $ui-blue-brand;
+        background-color: $ui-blue-10;
+      }
+    }
+  }
+
+  @media (max-width: calc($ui-tablet - 1px)) {
+    &_responsive {
+      &.ui-pagination_size_l {
+        @include ui-pagination_size_12;
+      }
+    }
+  }
+}

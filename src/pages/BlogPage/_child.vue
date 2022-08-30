@@ -2,6 +2,8 @@
 import Breadcrumbs from '~/components/Breadcrumbs/Breadcrumbs.vue'
 import Wysiwyg from '~/components/Dynamic/Wysiwyg/Wysiwyg.vue'
 
+import { prepareStrapiImage } from '~/logics/image'
+
 interface IProps {
   pageData?: any
 }
@@ -30,42 +32,51 @@ const breadcrumbs = computed(() => {
 })
 
 const timeToRead = readingTime(pageData.content ?? '')
+
+const previewImage = computed(() => {
+  const { url } = pageData.seo.metaImage || {}
+
+  if (url)
+    return prepareStrapiImage(url)
+})
 </script>
 
 <template>
-  <UiContainer>
-    <div class="blog-child-page">
+  <div class="blog-child-page">
+    <UiContainer>
       <Breadcrumbs
         :items="breadcrumbs"
         class="blog-child-page__breadcrumbs"
       />
+    </UiContainer>
 
-      <UiText
-        size="m"
-        responsive
-        class="blog-child-page__footer"
-      >
-        {{ formatDate(pageData.updatedAt, 'D MMMM') }}
+    <UiContainer narrow>
+      <div class="blog-child-page__title">
+        <UiText
+          size="s"
+          responsive
+          class="blog-child-page__date"
+        >
+          {{ formatDate(pageData.updatedAt, 'D MMMM YYYY') }}
 
-        <span>·</span>
+          <span>·</span>
 
-        {{ timeToRead }} min read
-      </UiText>
+          {{ timeToRead }} min read
+        </UiText>
 
-      <UiTitle
-        tag="h1"
-        size="l"
-        responsive
-        class="blog-child-page__title"
-      >
-        {{ pageData.title }}
-      </UiTitle>
+        <UiTitle
+          tag="h1"
+          size="l"
+        >
+          {{ pageData.title }}
+        </UiTitle>
+      </div>
 
       <Wysiwyg
         :data="{ content }"
       />
-    </div>
-  </UiContainer>
+    </UiContainer>
+  </div>
 </template>
 
 <style src="./_child.scss" lang="scss"></style>

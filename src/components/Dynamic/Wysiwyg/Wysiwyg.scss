@@ -4,7 +4,9 @@
   @mixin image-style {
     max-width: 100%;
     margin: 0 auto;
+    overflow: hidden;
     border: 1px solid $ui-black-20;
+    border-radius: 4px;
 
     @include ui-mobile-only {
       width: 100% !important;

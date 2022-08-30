@@ -11,17 +11,17 @@
     }
   }
 
-  @media (max-width: ($ui-tablet - 1px)) {
-    .ui-fade-scroll__inner {
-      direction: rtl;
+  // @media (max-width: ($ui-tablet - 1px)) {
+  //   .ui-fade-scroll__inner {
+  //     direction: rtl;
 
-      &::before {
-        flex-grow: 1;
-      }
-    }
+  //     &::before {
+  //       flex-grow: 1;
+  //     }
+  //   }
 
-    &__inner {
-      direction: ltr;
-    }
-  }
+  //   &__inner {
+  //     direction: ltr;
+  //   }
+  // }
 }
