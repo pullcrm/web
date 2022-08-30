@@ -1,28 +1,30 @@
 .blog-child-page {
-  &__section {
-    margin-top: 32px;
-  }
-
   &__breadcrumbs {
     margin: 16px 0;
   }
 
   &__title {
+    margin-top: 44px;
     margin-bottom: 24px;
   }
 
-  &__footer {
+  &__date {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-top: 8px;
+    margin-bottom: 8px;
     color: $ui-black-80;
-    column-gap: 4px;
+
+    span {
+      margin: 0 4px;
+    }
   }
 
-  @media (min-width: $ui-laptop) {
-    &__section {
-      margin-top: 64px;
+  @include ui-desktop-only {
+    &__title {
+      @include ui-typo-32;
+
+      margin-top: 60px;
     }
   }
 }
