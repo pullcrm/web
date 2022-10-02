@@ -13,7 +13,25 @@ const normalizeRoutes = routes.map((route) => {
 
 export default viteSSR(
   App,
-  { routes: setupLayouts(normalizeRoutes) },
+  {
+    routes: setupLayouts(normalizeRoutes),
+    routerOptions: {
+      scrollBehavior: (to: any, _from: any, savedPosition: any) => {
+        if (to.hash) {
+          return {
+            el: to.hash,
+            behavior: 'smooth',
+          }
+        }
+
+        if (savedPosition)
+          return savedPosition
+
+        else
+          return { top: 0 }
+      },
+    },
+  },
   (ctx: context) => {
     const head = createHead()
 
