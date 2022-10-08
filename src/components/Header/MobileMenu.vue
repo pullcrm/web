@@ -2,8 +2,12 @@
 import Actions from './Actions.vue'
 import Navigation from './Navigation.vue'
 
+defineProps<{
+  opened: boolean
+}>()
+
 const emit = defineEmits([
-  'close',
+  'update:opened',
 ])
 
 const router = useRouter()
@@ -11,33 +15,41 @@ const router = useRouter()
 router.afterEach(() => close())
 
 function close() {
-  emit('close')
+  emit('update:opened', false)
 }
 </script>
 
 <template>
   <div class="header-mobile-menu">
-    <div
-      class="header-mobile-menu__backdrop"
-      @click="close"
-    />
-
-    <div class="header-mobile-menu__inner">
-      <UiIcon
-        size="m"
-        name="solid/x-fill"
-        class="header-mobile-menu__close"
+    <Transition name="fade">
+      <div
+        v-if="opened"
+        class="header-mobile-menu__backdrop"
         @click="close"
       />
+    </Transition>
 
-      <Navigation
-        class="header-mobile-menu__navigation"
-      />
+    <Transition name="translateRight">
+      <div
+        v-if="opened"
+        class="header-mobile-menu__inner"
+      >
+        <UiIcon
+          size="m"
+          name="solid/x-fill"
+          class="header-mobile-menu__close"
+          @click="close"
+        />
 
-      <Actions
-        class="header-mobile-menu__actions"
-      />
-    </div>
+        <Navigation
+          class="header-mobile-menu__navigation"
+        />
+
+        <Actions
+          class="header-mobile-menu__actions"
+        />
+      </div>
+    </Transition>
   </div>
 </template>
 

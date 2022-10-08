@@ -50,9 +50,8 @@ const mobileMenuOpen = ref(false)
     </UiContainer>
 
     <MobileMenu
-      v-if="mobileMenuOpen"
+      v-model:opened="mobileMenuOpen"
       class="header__mobile-menu"
-      @close="mobileMenuOpen = false"
     />
   </header>
 </template>
