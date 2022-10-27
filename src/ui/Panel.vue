@@ -27,6 +27,7 @@ defineProps({
     :class="[
       `ui-panel_size_${size}`,
       { 'ui-panel_clickable': clickable },
+      { 'ui-panel_responsive': responsive },
     ]"
   >
     <slot />

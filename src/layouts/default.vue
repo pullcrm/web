@@ -2,6 +2,8 @@
 import Header from '~/components/Header/Header.vue'
 import Footer from '~/components/Footer/Footer.vue'
 import Logger from '~/components/Logger/Logger.vue'
+import CookieNotification from '~/components/CookieNotification/CookieNotification.vue'
+
 import { prepareMeta } from '~/logics/meta'
 import type { IDocumentLink } from '~/interfaces'
 
@@ -39,6 +41,8 @@ useHead(prepareMeta(seo))
       :documents="documents"
       class="default-layout__footer"
     />
+
+    <CookieNotification />
 
     <Logger
       v-if="hasLogger"

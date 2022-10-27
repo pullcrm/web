@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     Actions: typeof import('./components/Header/Actions.vue')['default']
     Breadcrumbs: typeof import('./components/Breadcrumbs/Breadcrumbs.vue')['default']
     BreadcrumbsItem: typeof import('./components/Breadcrumbs/BreadcrumbsItem.vue')['default']
+    CookieNotification: typeof import('./components/CookieNotification/CookieNotification.vue')['default']
     Define: typeof import('./components/Dynamic/Define.vue')['default']
     Footer: typeof import('./components/Footer/Footer.vue')['default']
     Header: typeof import('./components/Header/Header.vue')['default']
