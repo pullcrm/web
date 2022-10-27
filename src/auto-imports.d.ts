@@ -47,6 +47,7 @@ declare global {
   const extendRef: typeof import('@vueuse/core')['extendRef']
   const formatDate: typeof import('./utils/date-time')['formatDate']
   const generateId: typeof import('./utils/generate-id')['generateId']
+  const getCookie: typeof import('./utils/cookies')['getCookie']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const h: typeof import('vue')['h']
@@ -94,11 +95,13 @@ declare global {
   const refDefault: typeof import('@vueuse/core')['refDefault']
   const refThrottled: typeof import('@vueuse/core')['refThrottled']
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
+  const removeCookie: typeof import('./utils/cookies')['removeCookie']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
   const scrollTo: typeof import('./utils/scroll-to')['scrollTo']
   const scrollToElement: typeof import('./utils/scroll-to')['scrollToElement']
+  const setCookie: typeof import('./utils/cookies')['setCookie']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
@@ -337,6 +340,7 @@ declare module '@vue/runtime-core' {
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly formatDate: UnwrapRef<typeof import('./utils/date-time')['formatDate']>
     readonly generateId: UnwrapRef<typeof import('./utils/generate-id')['generateId']>
+    readonly getCookie: UnwrapRef<typeof import('./utils/cookies')['getCookie']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
@@ -384,11 +388,13 @@ declare module '@vue/runtime-core' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
+    readonly removeCookie: UnwrapRef<typeof import('./utils/cookies')['removeCookie']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
     readonly scrollTo: UnwrapRef<typeof import('./utils/scroll-to')['scrollTo']>
     readonly scrollToElement: UnwrapRef<typeof import('./utils/scroll-to')['scrollToElement']>
+    readonly setCookie: UnwrapRef<typeof import('./utils/cookies')['setCookie']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
